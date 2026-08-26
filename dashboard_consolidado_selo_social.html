@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Consolidado — Selo Social | Análise Comparativa por Setor</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #F7F6F3;
+  --surface: #FFFFFF;
+  --surface-alt: #F0EFEC;
+  --ink: #1A1A1A;
+  --ink-light: #6B6B6B;
+  --ink-muted: #9A9A9A;
+  --accent: #2D5F8A;
+  --accent-light: #E8F0F7;
+  --border: #E5E4E1;
+  --border-strong: #D0CFCC;
+  --academia: #2C3E50;
+  --privadas: #3498DB;
+  --publicas: #27AE60;
+  --socCivil: #E67E22;
+  --ods1: #E5243B; --ods2: #DDA63A; --ods3: #4C9F38; --ods4: #C5192D;
+  --ods5: #FF3A21; --ods7: #FCC30B; --ods8: #A21942; --ods11: #FD9D24;
+  --ods12: #BF8B2E; --ods14: #0A97D9; --ods15: #56C02B; --ods17: #19486A;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.06);
+  --radius: 12px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* HEADER */
+.header {
+  background: linear-gradient(135deg, #1B3A4B 0%, #2D5F8A 60%, #3A7CA5 100%);
+  padding: 56px 48px 48px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.header::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+}
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: -40%;
+  left: -5%;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.02);
+}
+.header-inner { max-width: 1400px; margin: 0 auto; position: relative; z-index: 1; }
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4em;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+.header p {
+  font-size: 1.05em;
+  opacity: 0.85;
+  font-weight: 300;
+  max-width: 700px;
+}
+.header-badge {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 6px 18px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 24px;
+  font-size: 0.85em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* CONTAINER */
+.container { max-width: 1400px; margin: 0 auto; padding: 0 32px 64px; }
+
+/* KPI STRIP */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: -32px 0 40px;
+  position: relative;
+  z-index: 2;
+  box-shadow: var(--shadow-md);
+}
+.kpi-card {
+  background: var(--surface);
+  padding: 28px 24px;
+  text-align: center;
+}
+.kpi-card:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+.kpi-card:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+.kpi-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6em;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.kpi-label {
+  font-size: 0.78em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* SECTIONS */
+.section {
+  margin-bottom: 48px;
+  animation: fadeUp 0.6s ease-out both;
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+.section-subtitle {
+  font-size: 0.9em;
+  color: var(--ink-light);
+  margin-bottom: 24px;
+}
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  padding: 28px;
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card-title {
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: var(--ink-muted);
+  margin-bottom: 16px;
+}
+
+/* SECTOR CARDS ROW */
+.sector-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.sector-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sector-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.sector-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+}
+.sector-card.academia::before { background: var(--academia); }
+.sector-card.privadas::before { background: var(--privadas); }
+.sector-card.publicas::before { background: var(--publicas); }
+.sector-card.socCivil::before { background: var(--socCivil); }
+
+.sector-name {
+  font-size: 0.78em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.sector-card.academia .sector-name { color: var(--academia); }
+.sector-card.privadas .sector-name { color: var(--privadas); }
+.sector-card.publicas .sector-name { color: var(--publicas); }
+.sector-card.socCivil .sector-name { color: var(--socCivil); }
+
+.sector-stat { margin-bottom: 10px; }
+.sector-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2em;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.sector-stat-label {
+  font-size: 0.78em;
+  color: var(--ink-light);
+}
+.sector-meta {
+  display: flex;
+  gap: 16px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+.sector-meta-item { flex: 1; }
+.sector-meta-value {
+  font-weight: 700;
+  font-size: 1.1em;
+}
+.sector-meta-label {
+  font-size: 0.72em;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* CHART LAYOUTS */
+.chart-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.chart-full { margin-bottom: 20px; }
+.chart-wrap {
+  position: relative;
+  height: 380px;
+}
+.chart-wrap-tall { height: 450px; }
+
+/* TABLE */
+.table-wrap { overflow-x: auto; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88em;
+}
+thead th {
+  background: var(--surface-alt);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.82em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ink-light);
+  border-bottom: 2px solid var(--border-strong);
+}
+tbody td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+tbody tr:hover { background: var(--surface-alt); }
+.ods-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-weight: 700;
+  font-size: 0.78em;
+  color: white;
+  white-space: nowrap;
+}
+.rank-num {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: var(--accent);
+}
+
+/* INSIGHT BOX */
+.insight {
+  background: var(--accent-light);
+  border-left: 4px solid var(--accent);
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin-top: 20px;
+  font-size: 0.9em;
+  color: var(--ink);
+  line-height: 1.65;
+}
+.insight strong { color: var(--accent); }
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 32px;
+  color: var(--ink-muted);
+  font-size: 0.82em;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+}
+
+/* LEGEND */
+.legend-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85em;
+  color: var(--ink-light);
+}
+.legend-dot {
+  width: 12px; height: 12px;
+  border-radius: 3px;
+}
+
+@media (max-width: 900px) {
+  .kpi-strip, .sector-grid { grid-template-columns: repeat(2, 1fr); }
+  .chart-row { grid-template-columns: 1fr; }
+  .header { padding: 36px 24px; }
+  .container { padding: 0 16px 48px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-inner">
+    <h1>Análise Comparativa — Selo Social</h1>
+    <p>Topic Modeling aplicado a 4.096 projetos certificados, distribuídos em quatro setores institucionais, com mapeamento para os Objetivos de Desenvolvimento Sustentável (ODS).</p>
+    <span class="header-badge">Structural Topic Modeling (STM) · Agenda 2030</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- KPI STRIP -->
+<div class="kpi-strip">
+  <div class="kpi-card">
+    <div class="kpi-number">4.096</div>
+    <div class="kpi-label">Projetos Analisados</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-number">67</div>
+    <div class="kpi-label">Tópicos Identificados</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-number">11</div>
+    <div class="kpi-label">ODS Primários</div>
+  </div>
+  <div class="kpi-card">
+    <div class="kpi-number">4</div>
+    <div class="kpi-label">Setores Institucionais</div>
+  </div>
+</div>
+
+<!-- SECTOR OVERVIEW -->
+<div class="section" style="animation-delay:0.1s">
+  <div class="section-title">Visão Geral por Setor</div>
+  <div class="section-subtitle">Comparação dos parâmetros do modelo e volume de projetos em cada segmento institucional.</div>
+
+  <div class="sector-grid">
+    <div class="sector-card socCivil">
+      <div class="sector-name">Sociedade Civil</div>
+      <div class="sector-stat">
+        <div class="sector-stat-value">1.501</div>
+        <div class="sector-stat-label">projetos · 36,6% do corpus</div>
+      </div>
+      <div class="sector-meta">
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">20</div>
+          <div class="sector-meta-label">Tópicos (K)</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">60,5%</div>
+          <div class="sector-meta-label">Prob. Média</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">10</div>
+          <div class="sector-meta-label">ODS Prim.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-card privadas">
+      <div class="sector-name">Setor Privado</div>
+      <div class="sector-stat">
+        <div class="sector-stat-value">1.233</div>
+        <div class="sector-stat-label">projetos · 30,1% do corpus</div>
+      </div>
+      <div class="sector-meta">
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">20</div>
+          <div class="sector-meta-label">Tópicos (K)</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">67,9%</div>
+          <div class="sector-meta-label">Prob. Média</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">10</div>
+          <div class="sector-meta-label">ODS Prim.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-card publicas">
+      <div class="sector-name">Setor Público</div>
+      <div class="sector-stat">
+        <div class="sector-stat-value">1.225</div>
+        <div class="sector-stat-label">projetos · 29,9% do corpus</div>
+      </div>
+      <div class="sector-meta">
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">20</div>
+          <div class="sector-meta-label">Tópicos (K)</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">64,7%</div>
+          <div class="sector-meta-label">Prob. Média</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">9</div>
+          <div class="sector-meta-label">ODS Prim.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sector-card academia">
+      <div class="sector-name">Academia</div>
+      <div class="sector-stat">
+        <div class="sector-stat-value">137</div>
+        <div class="sector-stat-label">projetos · 3,4% do corpus</div>
+      </div>
+      <div class="sector-meta">
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">7</div>
+          <div class="sector-meta-label">Tópicos (K)</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">82,9%</div>
+          <div class="sector-meta-label">Prob. Média</div>
+        </div>
+        <div class="sector-meta-item">
+          <div class="sector-meta-value">4</div>
+          <div class="sector-meta-label">ODS Prim.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ODS PRIMÁRIO COMPARATIVO -->
+<div class="section" style="animation-delay:0.2s">
+  <div class="section-title">Distribuição dos ODS Primários por Setor</div>
+  <div class="section-subtitle">Proporção percentual de projetos atribuídos a cada ODS primário, comparando os quatro segmentos.</div>
+
+  <div class="card chart-full">
+    <div class="card-title">ODS Primário — Comparativo entre Setores (%)</div>
+    <div class="legend-row">
+      <div class="legend-item"><div class="legend-dot" style="background:var(--socCivil)"></div>Sociedade Civil</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--privadas)"></div>Setor Privado</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--publicas)"></div>Setor Público</div>
+      <div class="legend-item"><div class="legend-dot" style="background:var(--academia)"></div>Academia</div>
+    </div>
+    <div class="chart-wrap chart-wrap-tall">
+      <canvas id="odsComparativo"></canvas>
+    </div>
+  </div>
+
+  <div class="insight">
+    <strong>Padrão setorial:</strong> O ODS 4 (Educação) lidera nos setores público (30,8%), privado (28,9%) e academia (32,1%). A sociedade civil se diferencia com predominância do ODS 8 (Trabalho Decente, 26,8%), refletindo sua vocação para inclusão produtiva e geração de renda.
+  </div>
+</div>
+
+<!-- TOP ODS POR SETOR -->
+<div class="section" style="animation-delay:0.25s">
+  <div class="section-title">Ranking dos ODS por Setor</div>
+  <div class="section-subtitle">Os cinco ODS primários com maior concentração de projetos em cada segmento institucional.</div>
+
+  <div class="chart-row">
+    <div class="card">
+      <div class="card-title">Sociedade Civil (n=1.501)</div>
+      <div class="chart-wrap"><canvas id="topSocCivil"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Setor Privado (n=1.233)</div>
+      <div class="chart-wrap"><canvas id="topPrivadas"></canvas></div>
+    </div>
+  </div>
+  <div class="chart-row">
+    <div class="card">
+      <div class="card-title">Setor Público (n=1.225)</div>
+      <div class="chart-wrap"><canvas id="topPublicas"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Academia (n=137)</div>
+      <div class="chart-wrap"><canvas id="topAcademia"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<!-- ODS PRIMÁRIOS + SECUNDÁRIOS TABLE -->
+<div class="section" style="animation-delay:0.3s">
+  <div class="section-title">ODS Primários e Secundários Consolidados</div>
+  <div class="section-subtitle">Frequência absoluta dos ODS como objetivo primário e como objetivo secundário em cada setor.</div>
+
+  <div class="card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th rowspan="2" style="vertical-align:bottom">ODS</th>
+            <th colspan="2" style="text-align:center;border-bottom:1px solid var(--border-strong)">Soc. Civil</th>
+            <th colspan="2" style="text-align:center;border-bottom:1px solid var(--border-strong)">Setor Privado</th>
+            <th colspan="2" style="text-align:center;border-bottom:1px solid var(--border-strong)">Setor Público</th>
+            <th colspan="2" style="text-align:center;border-bottom:1px solid var(--border-strong)">Academia</th>
+          </tr>
+          <tr>
+            <th style="text-align:center;font-size:0.75em">Prim.</th>
+            <th style="text-align:center;font-size:0.75em">Sec.</th>
+            <th style="text-align:center;font-size:0.75em">Prim.</th>
+            <th style="text-align:center;font-size:0.75em">Sec.</th>
+            <th style="text-align:center;font-size:0.75em">Prim.</th>
+            <th style="text-align:center;font-size:0.75em">Sec.</th>
+            <th style="text-align:center;font-size:0.75em">Prim.</th>
+            <th style="text-align:center;font-size:0.75em">Sec.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods1)">ODS 1</span> Errad. da Pobreza</td>
+            <td style="text-align:center;font-weight:600">229</td><td style="text-align:center">141</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">73</td>
+            <td style="text-align:center;font-weight:600">170</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods2)">ODS 2</span> Fome Zero</td>
+            <td style="text-align:center;font-weight:600">160</td><td style="text-align:center">120</td>
+            <td style="text-align:center;font-weight:600">67</td><td style="text-align:center">150</td>
+            <td style="text-align:center;font-weight:600">47</td><td style="text-align:center">170</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods3)">ODS 3</span> Saúde e Bem-estar</td>
+            <td style="text-align:center;font-weight:600">142</td><td style="text-align:center;font-weight:600;color:var(--ods3)">314</td>
+            <td style="text-align:center;font-weight:600">310</td><td style="text-align:center">226</td>
+            <td style="text-align:center;font-weight:600">199</td><td style="text-align:center;font-weight:600;color:var(--ods3)">257</td>
+            <td style="text-align:center;font-weight:600">26</td><td style="text-align:center">—</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods4)">ODS 4</span> Educação de Qualidade</td>
+            <td style="text-align:center;font-weight:600">145</td><td style="text-align:center">173</td>
+            <td style="text-align:center;font-weight:600;color:var(--ods4)">356</td><td style="text-align:center">—</td>
+            <td style="text-align:center;font-weight:600;color:var(--ods4)">377</td><td style="text-align:center">163</td>
+            <td style="text-align:center;font-weight:600">44</td><td style="text-align:center">36</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods5)">ODS 5</span> Igualdade de Gênero</td>
+            <td style="text-align:center;font-weight:600">64</td><td style="text-align:center">50</td>
+            <td style="text-align:center;font-weight:600">69</td><td style="text-align:center">—</td>
+            <td style="text-align:center;font-weight:600">132</td><td style="text-align:center">168</td>
+            <td style="text-align:center;font-weight:600">20</td><td style="text-align:center">15</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods7)">ODS 7</span> Energia Limpa</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">85</td>
+            <td style="text-align:center;font-weight:600">33</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods8)">ODS 8</span> Trabalho Decente</td>
+            <td style="text-align:center;font-weight:600;color:var(--ods8)">402</td><td style="text-align:center">—</td>
+            <td style="text-align:center;font-weight:600">132</td><td style="text-align:center;font-weight:600;color:var(--ods8)">328</td>
+            <td style="text-align:center;font-weight:600">110</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">17</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:#FD6925">ODS 9</span> Inovação e Infraestr.</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">229</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">140</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">241</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:#DD1367">ODS 10</span> Redução Desiguald.</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">114</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">108</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">20</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods11)">ODS 11</span> Cidades Sustentáveis</td>
+            <td style="text-align:center;font-weight:600">82</td><td style="text-align:center">—</td>
+            <td style="text-align:center;font-weight:600">56</td><td style="text-align:center">164</td>
+            <td style="text-align:center;font-weight:600">52</td><td style="text-align:center">127</td>
+            <td style="text-align:center;font-weight:600;color:var(--ods11)">47</td><td style="text-align:center">27</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods12)">ODS 12</span> Consumo Responsável</td>
+            <td style="text-align:center;font-weight:600">88</td><td style="text-align:center">—</td>
+            <td style="text-align:center;font-weight:600">102</td><td style="text-align:center">—</td>
+            <td style="text-align:center;font-weight:600">80</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">27</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:#3F7E44">ODS 13</span> Ação Climática</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">88</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">80</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">22</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods14)">ODS 14</span> Vida na Água</td>
+            <td style="text-align:center;font-weight:600">51</td><td style="text-align:center">82</td>
+            <td style="text-align:center;font-weight:600">60</td><td style="text-align:center">153</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">—</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods15)">ODS 15</span> Vida Terrestre</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">88</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">67</td>
+            <td style="text-align:center;font-weight:600">58</td><td style="text-align:center">—</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center;font-weight:600;color:var(--ods15)">47</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:#00689D">ODS 16</span> Paz e Justiça</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">37</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">104</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">102</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">20</td>
+          </tr>
+          <tr>
+            <td><span class="ods-badge" style="background:var(--ods17)">ODS 17</span> Parcerias</td>
+            <td style="text-align:center;font-weight:600">138</td><td style="text-align:center">133</td>
+            <td style="text-align:center;font-weight:600">48</td><td style="text-align:center">108</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">82</td>
+            <td style="text-align:center;color:var(--ink-muted)">—</td><td style="text-align:center">17</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="insight" style="margin-top:20px">
+      <strong>Transversalidade:</strong> O ODS 3 (Saúde) é o ODS secundário mais frequente nos setores público (257) e de sociedade civil (314), indicando que projetos de educação, assistência e trabalho incorporam componentes de saúde. O ODS 9 (Inovação) aparece como secundário relevante nos setores público (241) e de sociedade civil (229).
+    </div>
+  </div>
+</div>
+
+<!-- HEATMAP / RADAR -->
+<div class="section" style="animation-delay:0.35s">
+  <div class="section-title">Perfil Temático Comparado</div>
+  <div class="section-subtitle">Concentração relativa dos ODS em cada setor, evidenciando as diferenças de vocação institucional.</div>
+
+  <div class="chart-row">
+    <div class="card">
+      <div class="card-title">Radar — Perfil dos ODS por Setor</div>
+      <div class="chart-wrap chart-wrap-tall">
+        <canvas id="radarODS"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">Probabilidade Média por Setor e ODS Líder</div>
+      <div class="chart-wrap chart-wrap-tall">
+        <canvas id="probSetor"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- METODOLOGIA -->
+<div class="section" style="animation-delay:0.4s">
+  <div class="section-title">Síntese Metodológica</div>
+  <div class="section-subtitle">Parâmetros e etapas da análise de topic modeling aplicada ao corpus do Selo Social.</div>
+
+  <div class="card">
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Parâmetro</th>
+            <th>Sociedade Civil</th>
+            <th>Setor Privado</th>
+            <th>Setor Público</th>
+            <th>Academia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td style="font-weight:600">Projetos (n)</td><td>1.501</td><td>1.233</td><td>1.225</td><td>137</td></tr>
+          <tr><td style="font-weight:600">Tópicos (K)</td><td>20</td><td>20</td><td>20</td><td>7</td></tr>
+          <tr><td style="font-weight:600">Prob. Média</td><td>60,5%</td><td>67,9%</td><td>64,7%</td><td>82,9%</td></tr>
+          <tr><td style="font-weight:600">ODS Primários</td><td>10</td><td>10</td><td>9</td><td>4</td></tr>
+          <tr><td style="font-weight:600">Metas Específicas</td><td>55</td><td>51</td><td>46</td><td>15</td></tr>
+          <tr><td style="font-weight:600">ODS Líder</td>
+            <td><span class="ods-badge" style="background:var(--ods8)">ODS 8</span> 26,8%</td>
+            <td><span class="ods-badge" style="background:var(--ods4)">ODS 4</span> 28,9%</td>
+            <td><span class="ods-badge" style="background:var(--ods4)">ODS 4</span> 30,8%</td>
+            <td><span class="ods-badge" style="background:var(--ods11)">ODS 11</span> 34,3%</td>
+          </tr>
+          <tr><td style="font-weight:600">Método</td><td colspan="4">Structural Topic Modeling (STM) — Blei et al. (2003); Marcolin et al. (2023)</td></tr>
+          <tr><td style="font-weight:600">Seleção de K</td><td colspan="4">searchK — Roberts et al. (2019)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<div class="footer">
+  Selo Social · Análise Consolidada via Structural Topic Modeling · Dados extraídos de 4.096 projetos certificados · 2026
+</div>
+
+<script>
+const COLORS = {
+  socCivil: '#E67E22',
+  privadas: '#3498DB',
+  publicas: '#27AE60',
+  academia: '#2C3E50'
+};
+
+const odsColors = {
+  1:'#E5243B',2:'#DDA63A',3:'#4C9F38',4:'#C5192D',5:'#FF3A21',
+  7:'#FCC30B',8:'#A21942',11:'#FD9D24',12:'#BF8B2E',14:'#0A97D9',
+  15:'#56C02B',17:'#19486A'
+};
+
+const defaultOpts = {
+  responsive: true,
+  maintainAspectRatio: false,
+  plugins: {
+    legend: { display: false },
+    tooltip: {
+      backgroundColor: '#1A1A1A',
+      titleFont: { family: 'DM Sans', size: 12 },
+      bodyFont: { family: 'DM Sans', size: 11 },
+      cornerRadius: 8,
+      padding: 10
+    }
+  },
+  scales: {
+    y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { font: { family: 'DM Sans', size: 11 } } },
+    x: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 10 } } }
+  }
+};
+
+// =============== ODS COMPARATIVO ===============
+const odsLabels = ['ODS 1','ODS 2','ODS 3','ODS 4','ODS 5','ODS 7','ODS 8','ODS 11','ODS 12','ODS 14','ODS 15','ODS 17'];
+const odsKeys =   [1, 2, 3, 4, 5, 7, 8, 11, 12, 14, 15, 17];
+
+const scData = {8:26.78,1:15.26,2:10.66,4:9.66,3:9.46,17:9.19,12:5.86,11:5.46,5:4.26,14:3.40};
+const prData = {4:28.9,3:25.1,8:10.7,12:8.3,5:5.6,2:5.4,14:4.9,11:4.5,17:3.9,7:2.7};
+const puData = {4:30.8,3:16.2,1:13.9,5:10.8,8:9.0,12:6.5,15:4.7,11:4.2,2:3.8};
+const acData = {11:34.3,4:32.1,3:19.0,5:14.6};
+
+function getVals(data) { return odsKeys.map(k => data[k] || 0); }
+
+new Chart(document.getElementById('odsComparativo'), {
+  type: 'bar',
+  data: {
+    labels: odsLabels,
+    datasets: [
+      { label: 'Sociedade Civil', data: getVals(scData), backgroundColor: COLORS.socCivil+'DD', borderRadius: 4, barPercentage: 0.8 },
+      { label: 'Setor Privado', data: getVals(prData), backgroundColor: COLORS.privadas+'DD', borderRadius: 4, barPercentage: 0.8 },
+      { label: 'Setor Público', data: getVals(puData), backgroundColor: COLORS.publicas+'DD', borderRadius: 4, barPercentage: 0.8 },
+      { label: 'Academia', data: getVals(acData), backgroundColor: COLORS.academia+'DD', borderRadius: 4, barPercentage: 0.8 }
+    ]
+  },
+  options: {
+    ...defaultOpts,
+    plugins: { ...defaultOpts.plugins, legend: { display: false } },
+    scales: {
+      ...defaultOpts.scales,
+      y: { ...defaultOpts.scales.y, title: { display: true, text: '% de Projetos', font: { family: 'DM Sans', size: 11 } } }
+    }
+  }
+});
+
+// =============== TOP ODS POR SETOR ===============
+function makeHBar(canvasId, labels, values, colors) {
+  new Chart(document.getElementById(canvasId), {
+    type: 'bar',
+    data: {
+      labels: labels,
+      datasets: [{ data: values, backgroundColor: colors, borderRadius: 6, barThickness: 28 }]
+    },
+    options: {
+      ...defaultOpts,
+      indexAxis: 'y',
+      scales: {
+        x: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.04)' }, ticks: { font: { family: 'DM Sans', size: 10 }, callback: v => v+'%' } },
+        y: { grid: { display: false }, ticks: { font: { family: 'DM Sans', size: 11 } } }
+      },
+      plugins: {
+        ...defaultOpts.plugins,
+        tooltip: { ...defaultOpts.plugins.tooltip, callbacks: { label: ctx => ctx.parsed.x + '% dos projetos' } }
+      }
+    }
+  });
+}
+
+makeHBar('topSocCivil',
+  ['ODS 8 – Trabalho', 'ODS 1 – Pobreza', 'ODS 2 – Fome Zero', 'ODS 4 – Educação', 'ODS 3 – Saúde'],
+  [26.8, 15.3, 10.7, 9.7, 9.5],
+  [odsColors[8], odsColors[1], odsColors[2], odsColors[4], odsColors[3]]
+);
+makeHBar('topPrivadas',
+  ['ODS 4 – Educação', 'ODS 3 – Saúde', 'ODS 8 – Trabalho', 'ODS 12 – Consumo', 'ODS 5 – Igualdade'],
+  [28.9, 25.1, 10.7, 8.3, 5.6],
+  [odsColors[4], odsColors[3], odsColors[8], odsColors[12], odsColors[5]]
+);
+makeHBar('topPublicas',
+  ['ODS 4 – Educação', 'ODS 3 – Saúde', 'ODS 1 – Pobreza', 'ODS 5 – Igualdade', 'ODS 8 – Trabalho'],
+  [30.8, 16.2, 13.9, 10.8, 9.0],
+  [odsColors[4], odsColors[3], odsColors[1], odsColors[5], odsColors[8]]
+);
+makeHBar('topAcademia',
+  ['ODS 11 – Cidades', 'ODS 4 – Educação', 'ODS 3 – Saúde', 'ODS 5 – Igualdade'],
+  [34.3, 32.1, 19.0, 14.6],
+  [odsColors[11], odsColors[4], odsColors[3], odsColors[5]]
+);
+
+// =============== RADAR ===============
+const radarLabels = ['ODS 1','ODS 2','ODS 3','ODS 4','ODS 5','ODS 8','ODS 11','ODS 12','ODS 17'];
+const radarKeys = [1,2,3,4,5,8,11,12,17];
+
+new Chart(document.getElementById('radarODS'), {
+  type: 'radar',
+  data: {
+    labels: radarLabels,
+    datasets: [
+      { label: 'Soc. Civil', data: radarKeys.map(k=>scData[k]||0), borderColor: COLORS.socCivil, backgroundColor: COLORS.socCivil+'22', pointBackgroundColor: COLORS.socCivil, borderWidth: 2, pointRadius: 3 },
+      { label: 'Privado', data: radarKeys.map(k=>prData[k]||0), borderColor: COLORS.privadas, backgroundColor: COLORS.privadas+'22', pointBackgroundColor: COLORS.privadas, borderWidth: 2, pointRadius: 3 },
+      { label: 'Público', data: radarKeys.map(k=>puData[k]||0), borderColor: COLORS.publicas, backgroundColor: COLORS.publicas+'22', pointBackgroundColor: COLORS.publicas, borderWidth: 2, pointRadius: 3 },
+      { label: 'Academia', data: radarKeys.map(k=>acData[k]||0), borderColor: COLORS.academia, backgroundColor: COLORS.academia+'22', pointBackgroundColor: COLORS.academia, borderWidth: 2, pointRadius: 3 }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { family: 'DM Sans', size: 11 }, usePointStyle: true, pointStyle: 'circle', padding: 16 } },
+      tooltip: defaultOpts.plugins.tooltip
+    },
+    scales: {
+      r: {
+        beginAtZero: true,
+        grid: { color: 'rgba(0,0,0,0.06)' },
+        angleLines: { color: 'rgba(0,0,0,0.06)' },
+        pointLabels: { font: { family: 'DM Sans', size: 10 } },
+        ticks: { font: { size: 9 }, backdropColor: 'transparent' }
+      }
+    }
+  }
+});
+
+// =============== PROB MÉDIA BAR ===============
+new Chart(document.getElementById('probSetor'), {
+  type: 'bar',
+  data: {
+    labels: ['Sociedade\nCivil', 'Setor\nPúblico', 'Setor\nPrivado', 'Academia'],
+    datasets: [{
+      label: 'Probabilidade Média (%)',
+      data: [60.5, 64.7, 67.9, 82.9],
+      backgroundColor: [COLORS.socCivil, COLORS.publicas, COLORS.privadas, COLORS.academia],
+      borderRadius: 8,
+      barThickness: 52
+    }]
+  },
+  options: {
+    ...defaultOpts,
+    scales: {
+      ...defaultOpts.scales,
+      y: { ...defaultOpts.scales.y, min: 40, max: 100, title: { display: true, text: 'Prob. Média (%)', font: { family: 'DM Sans', size: 11 } } }
+    },
+    plugins: {
+      ...defaultOpts.plugins,
+      tooltip: { ...defaultOpts.plugins.tooltip, callbacks: { label: ctx => ctx.parsed.y.toFixed(1) + '%' } },
+      datalabels: false
+    }
+  },
+  plugins: [{
+    afterDraw: function(chart) {
+      const ctx = chart.ctx;
+      const leaders = ['ODS 8','ODS 4','ODS 4','ODS 11'];
+      chart.data.datasets[0].data.forEach((val, i) => {
+        const meta = chart.getDatasetMeta(0).data[i];
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.font = '600 12px DM Sans';
+        ctx.fillStyle = '#1A1A1A';
+        ctx.fillText(val + '%', meta.x, meta.y - 14);
+        ctx.font = '500 10px DM Sans';
+        ctx.fillStyle = '#6B6B6B';
+        ctx.fillText(leaders[i], meta.x, meta.y - 2);
+        ctx.restore();
+      });
+    }
+  }]
+});
+</script>
+</body>
+</html>
