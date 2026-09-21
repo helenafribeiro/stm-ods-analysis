@@ -1,0 +1,1989 @@
+{
+ "fonte": "Guia de Metas Locais 2026 - Instituto Selo Social (metas adaptadas pelo IPEA + ODS 18 do Ministério da Igualdade Racial)",
+ "versao": "tese_v2",
+ "total_metas": 94,
+ "notas_metodologicas": "Cada meta possui dois textos: 'institucional' (texto oficial do guia, normativo) e 'operacional' (formulação de resultado, descrevendo o que um projeto faz para ser classificado naquela meta). O texto operacional é usado para gerar embeddings; o institucional fica como referência. Versão 3.0: o campo operacional continua sendo o único texto vetorizado. O campo exclusoes NÃO deve ser vetorizado — modelos de embedding não representam negação, e incluir o termo excluído no índice atrai exatamente os casos que se pretende afastar. Ele destina-se ao prompt do modelo de linguagem, na etapa de decisão. O campo roteamento indica por qual camada a meta deve ser decidida: estrutural (campo do formulário), criterio_llm (critério funcional avaliado pelo modelo) ou rag (busca semântica). Os campos uso_curadoria_educacao e aparicoes_top3_educacao registram a medição sobre 3.207 atividades do corpus do Selo Educação e servem de base para a revisão com a equipe do Selo. Versão 4.0: submetas do ODS 18 renumeradas com sufixo alfabético (18.5.a, 18.5.b, 18.8.a, 18.8.b), com o identificador anterior preservado no campo id_anterior para compatibilidade com os corpora já rotulados. Texto operacional da meta 18.1 reancorado em ambiente de trabalho, conforme o enunciado da Portaria Conjunta MPI/MIR/SG-PR nº 198, de 24 de setembro de 2025. Decisão da coordenação: manter no índice todas as metas do Guia, inclusive as sem ocorrência no corpus do Selo Educação. Versão 5.0: o campo roteamento passa a nomear as quatro rotas do desenho consolidado, sendo estrutural, criterio_llm, precedentes e descricao, esta última registrada em rota_reserva para as metas que seguem por precedentes. Os campos de uso e de aparições passam a ser objetos indexados por programa, uma vez que o agente atenderá tanto o Selo ODS Educação quanto a Sociedade Civil, e os valores hoje disponíveis referem-se apenas ao primeiro. O bloco recuperacao registra os parâmetros medidos da consulta e o bloco escopo registra a pendência de granularidade da Sociedade Civil. Versão 5.1: acrescentadas as contagens de uso da curadoria da Sociedade Civil, medidas em nível de atividade sobre 2.298 unidades rotuladas, e revisto o estatuto das metas sem uso à luz dos dois corpus. Versão 6.0: parâmetros de recuperação atualizados após varredura por índice, com adoção do índice de união por cobertura e registro do expoente de frequência como parâmetro de manutenção. Acrescentados os blocos corpus_precedentes e exclusoes_observadas.",
+ "ods": {
+  "1": {
+   "nome": "Erradicação da Pobreza",
+   "metas": {
+    "1.1": {
+     "institucional": "Até 2030, erradicar a pobreza extrema para todas as pessoas em todos os lugares, medida como pessoas vivendo com menos de US$ 3,20 per capita por dia, medido pela Paridade de Poder de Compra (PCC).",
+     "operacional": "Pobreza extrema e vulnerabilidade socioeconômica aguda, transferência de renda, insegurança alimentar severa, abrigamento emergencial, população em situação de rua e estratégias de subsistência.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 4
+     },
+     "aparicoes_top3": {
+      "educacao": 68
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que atendem pessoas em situação de pobreza extrema ou de extrema vulnerabilidade socioeconômica, com ações de transferência de renda, distribuição de alimentos, abrigamento emergencial, atendimento à população em situação de rua ou geração de renda mínima para subsistência."
+    },
+    "1.2": {
+     "institucional": "Até 2030, reduzir à metade a proporção de homens, mulheres e crianças, de todas as idades, que vivem na pobreza monetária e não monetária, de acordo com as definições nacionais.",
+     "operacional": "Redução da pobreza monetária e multidimensional, apoio financeiro, acesso a serviços básicos, microcrédito, qualificação para geração de renda e privação material de famílias em vulnerabilidade.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 7
+     },
+     "aparicoes_top3": {
+      "educacao": 66
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que reduzem situações de pobreza monetária ou multidimensional, oferecendo apoio financeiro, acesso a serviços básicos, qualificação para geração de renda, microcrédito, doação de bens essenciais ou cestas básicas para famílias em vulnerabilidade."
+    },
+    "1.3": {
+     "institucional": "Assegurar para todos, em nível nacional, até 2030, o acesso ao sistema de proteção social, garantindo a cobertura integral dos pobres e das pessoas em situação de vulnerabilidade.",
+     "operacional": "Sistemas de proteção social e cobertura de programas governamentais de transferência e assistência, incluindo Bolsa Família, Benefício de Prestação Continuada, CadÚnico, regularização documental e a rede socioassistencial de CRAS e CREAS.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 11
+     },
+     "aparicoes_top3": {
+      "educacao": 6
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam acesso ao sistema de proteção social, encaminham beneficiários a programas governamentais (Bolsa Família, BPC, CadÚnico), apoiam regularização documental ou articulam serviços socioassistenciais (CRAS, CREAS) para populações vulneráveis."
+    },
+    "1.4": {
+     "institucional": "Até 2030, garantir que todos os homens e mulheres, particularmente os pobres e as pessoas em situação de vulnerabilidade, tenham acesso a serviços sociais, infraestrutura básica, novas tecnologias e meios para produção, tecnologias de informação e comunicação, serviços financeiros e segurança no acesso equitativo à terra e aos recursos naturais.",
+     "operacional": "Acesso de populações vulneráveis a serviços sociais, infraestrutura básica, conectividade, serviços financeiros, regularização fundiária e meios de produção, incluindo inclusão digital e agricultura familiar.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 9
+     },
+     "aparicoes_top3": {
+      "educacao": 127
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que garantem a populações vulneráveis acesso a serviços sociais, infraestrutura básica, tecnologia, conectividade, serviços financeiros, regularização fundiária ou meios de produção, como inclusão digital, doação de equipamentos, acesso a internet e apoio à agricultura familiar."
+    }
+   }
+  },
+  "2": {
+   "nome": "Fome Zero e Agricultura Sustentável",
+   "metas": {
+    "2.1": {
+     "institucional": "Até 2030, erradicar a fome e garantir o acesso de todas as pessoas, em particular os pobres e pessoas em situações vulneráveis, incluindo crianças e idosos, a alimentos seguros, culturalmente adequados, saudáveis e suficientes durante todo o ano.",
+     "operacional": "Fome e insegurança alimentar, provisão de refeições, alimentação escolar e assistência alimentar a pessoas em situação de rua, idosos e crianças em vulnerabilidade.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência no Selo Educação e com 31 ocorrência(s) na Sociedade Civil. Mantida no índice, com precedentes disponíveis apenas no segundo programa.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 31
+     },
+     "aparicoes_top3": {
+      "educacao": 60
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que combatem a fome e garantem alimentação a populações em insegurança alimentar, com distribuição de refeições prontas, cestas básicas, marmitas, lanches escolares, alimentos a pessoas em situação de rua, idosos ou crianças vulneráveis."
+    },
+    "2.2": {
+     "institucional": "Até 2030, erradicar as formas de má nutrição relacionadas à desnutrição, reduzir as formas de má nutrição relacionadas ao sobrepeso ou à obesidade, prevendo o alcance até 2025 das metas acordadas internacionalmente sobre desnutrição crônica e desnutrição aguda em crianças menores de cinco anos, e garantir a segurança alimentar e nutricional de meninas adolescentes, mulheres grávidas e lactantes, pessoas idosas e povos e comunidades tradicionais.",
+     "operacional": "Desnutrição, obesidade e má nutrição, educação nutricional, estado nutricional de crianças, gestantes e idosos, aleitamento materno e alimentação saudável.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 6,
+      "sociedade_civil": 8
+     },
+     "aparicoes_top3": {
+      "educacao": 197
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que enfrentam desnutrição, obesidade ou má nutrição, com ações de educação nutricional, acompanhamento alimentar de crianças, gestantes ou idosos, apoio ao aleitamento materno, fortalecimento da alimentação saudável ou monitoramento do estado nutricional."
+    },
+    "2.3": {
+     "institucional": "Até 2030, aumentar a produtividade agrícola e a renda dos pequenos produtores de alimentos, particularmente de mulheres, agricultores familiares, povos e comunidades tradicionais, visando tanto à produção de autoconsumo e garantia da reprodução social dessas populações quanto ao seu desenvolvimento socioeconômico, por meio do acesso seguro e equitativo à terra e aos territórios, à assistência técnica e extensão rural, a linhas de crédito, aos mercados locais e institucionais, ao associativismo e cooperativismo, e a oportunidades de agregação de valor.",
+     "operacional": "Agricultura familiar, pequenos produtores, povos indígenas e comunidades tradicionais, assistência técnica rural, crédito agrícola, cooperativismo, comercialização e agregação de valor à produção local.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 25,
+      "sociedade_civil": 8
+     },
+     "aparicoes_top3": {
+      "educacao": 231
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que apoiam pequenos produtores, agricultura familiar, povos indígenas e comunidades tradicionais em sua produção agrícola, oferecendo assistência técnica, acesso a crédito, cooperativismo, comercialização de produtos locais ou agregação de valor à produção rural."
+    },
+    "2.4": {
+     "institucional": "Até 2030, garantir sistemas sustentáveis de produção de alimentos, por meio de políticas de pesquisa, de assistência técnica e extensão rural, visando implementar práticas agrícolas resilientes que aumentem a produção e a produtividade e ajudem a proteger, recuperar e conservar os serviços ecossistêmicos.",
+     "operacional": "Agricultura sustentável e resiliente, agroecologia, hortas comunitárias, agricultura urbana, sistemas agroflorestais, produção orgânica e conservação de solo, água e biodiversidade.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 16,
+      "sociedade_civil": 2
+     },
+     "aparicoes_top3": {
+      "educacao": 363
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem agricultura sustentável e resiliente, com hortas comunitárias, agroecologia, agricultura urbana, sistemas agroflorestais, produção orgânica ou práticas que conservem solo, água e biodiversidade."
+    }
+   }
+  },
+  "3": {
+   "nome": "Saúde e Bem-estar",
+   "metas": {
+    "3.1": {
+     "institucional": "Até 2030, reduzir a razão de mortalidade materna para no máximo 30 mortes por 100.000 nascidos vivos.",
+     "operacional": "Mortalidade materna, assistência pré-natal, acompanhamento de gestantes, parto humanizado e riscos associados à gravidez e à maternidade.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência no Selo Educação e com 1 ocorrência(s) na Sociedade Civil. Mantida no índice, com precedentes disponíveis apenas no segundo programa.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 92
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que reduzem mortalidade materna, com pré-natal, acompanhamento de gestantes, parto humanizado, apoio a mães em situação de risco ou educação em saúde sobre gravidez e maternidade."
+    },
+    "3.2": {
+     "institucional": "Até 2030, enfrentar as mortes evitáveis de recém-nascidos e crianças menores de 5 anos, objetivando reduzir a mortalidade neonatal para no máximo 5 por mil nascidos vivos e a mortalidade de crianças menores de 5 anos para no máximo 8 por mil nascidos vivos.",
+     "operacional": "Mortalidade infantil e neonatal, cuidado de recém-nascidos e crianças pequenas, cobertura vacinal infantil e prevenção de doenças na primeira infância.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 58
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que reduzem mortalidade infantil, com cuidado neonatal, acompanhamento de bebês e crianças pequenas, vacinação, prevenção de doenças e apoio a famílias com recém-nascidos."
+    },
+    "3.3": {
+     "institucional": "Até 2030 acabar, como problema de saúde pública, com as epidemias de AIDS, tuberculose, malária, hepatites virais, doenças negligenciadas, doenças transmitidas pela água, arboviroses transmitidas pelo Aedes Aegypti e outras doenças transmissíveis.",
+     "operacional": "Doenças transmissíveis, incluindo HIV e AIDS, tuberculose, hepatites virais, dengue, zika, chikungunya e doenças negligenciadas, testagem, tratamento e controle vetorial.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 30,
+      "sociedade_civil": 11
+     },
+     "aparicoes_top3": {
+      "educacao": 142
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que prevenem ou tratam doenças transmissíveis como AIDS, tuberculose, hepatites, dengue, zika, chikungunya e doenças negligenciadas, com testagem, conscientização, tratamento ou ações contra o Aedes aegypti."
+    },
+    "3.4": {
+     "institucional": "Até 2030, reduzir em um terço a mortalidade prematura por doenças não transmissíveis via prevenção e tratamento, promover a saúde mental e o bem-estar, a saúde do trabalhador e da trabalhadora, e prevenir o suicídio.",
+     "operacional": "Saúde mental, bem-estar emocional, prevenção do suicídio, atenção psicológica, doenças crônicas não transmissíveis como diabetes, hipertensão e câncer, atividade física e saúde do trabalhador.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 146,
+      "sociedade_civil": 150
+     },
+     "aparicoes_top3": {
+      "educacao": 293
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem saúde mental, bem-estar emocional, prevenção do suicídio, atendimento psicológico, terapia, atividade física, lazer, cuidado com doenças crônicas (diabetes, hipertensão, câncer) ou saúde do trabalhador."
+    },
+    "3.5": {
+     "institucional": "Reforçar a prevenção e o tratamento dos problemas decorrentes do uso de substâncias, incluindo o abuso de drogas entorpecentes e uso nocivo do álcool.",
+     "operacional": "Uso problemático de álcool e outras drogas, dependência química, prevenção do consumo, redução de danos e efeitos sobre as famílias.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 7,
+      "sociedade_civil": 24
+     },
+     "aparicoes_top3": {
+      "educacao": 57
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que previnem ou tratam o uso problemático de álcool e outras drogas, com acolhimento de dependentes químicos, prevenção em escolas, redução de danos ou apoio a famílias afetadas."
+    },
+    "3.6": {
+     "institucional": "Até 2030, reduzir pela metade as mortes e lesões por acidentes no trânsito.",
+     "operacional": "Acidentes e mortalidade no trânsito, comportamento de motoristas, educação para o trânsito, atendimento a vítimas e segurança viária.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 52
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que reduzem acidentes e mortes no trânsito, com educação para o trânsito, conscientização de motoristas, atendimento a vítimas ou mobilidade urbana segura."
+    },
+    "3.7": {
+     "institucional": "Até 2030, assegurar o acesso universal aos serviços e insumos de saúde sexual e reprodutiva, incluindo o planejamento reprodutivo, à informação e educação, bem como a integração da saúde reprodutiva em estratégias e programas nacionais.",
+     "operacional": "Saúde sexual e reprodutiva, planejamento familiar, contracepção, gravidez na adolescência e atenção ginecológica.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 7,
+      "sociedade_civil": 2
+     },
+     "aparicoes_top3": {
+      "educacao": 30
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que garantem saúde sexual e reprodutiva, com planejamento familiar, distribuição de preservativos, prevenção de gravidez na adolescência, atendimento ginecológico ou educação em saúde sexual."
+    },
+    "3.8": {
+     "institucional": "Assegurar, por meio do Sistema Único de Saúde (SUS), a cobertura universal de saúde, o acesso a serviços essenciais de saúde de qualidade em todos os níveis de atenção e o acesso a medicamentos e vacinas essenciais seguros, eficazes e de qualidade que estejam incorporados ao rol de produtos oferecidos pelo SUS.",
+     "operacional": "Acesso a serviços de saúde e cobertura do Sistema Único de Saúde, atenção médica, acesso a medicamentos, exames e cirurgias, imunização e capacidade das unidades de saúde.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 32,
+      "sociedade_civil": 36
+     },
+     "aparicoes_top3": {
+      "educacao": 98
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam acesso ao SUS e a serviços de saúde, com atendimento médico, doação de medicamentos, fortalecimento de unidades de saúde, campanhas de vacinação, mutirões de saúde ou acesso a cirurgias e exames."
+    }
+   }
+  },
+  "4": {
+   "nome": "Educação de Qualidade",
+   "metas": {
+    "4.1": {
+     "institucional": "Até 2030, garantir que todas as meninas e meninos completem o ensino fundamental e médio, equitativo e de qualidade, na idade adequada, assegurando a oferta gratuita na rede pública e que conduza a resultados de aprendizagem satisfatórios e relevantes.",
+     "operacional": "Conclusão do ensino fundamental e médio, evasão escolar, recuperação de aprendizagem, reforço escolar e permanência de crianças e adolescentes na escola pública.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 21,
+      "sociedade_civil": 30
+     },
+     "aparicoes_top3": {
+      "educacao": 213
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que apoiam a conclusão do ensino fundamental e médio por crianças e adolescentes, com reforço escolar, contraturno, prevenção da evasão, recuperação de aprendizagem ou apoio à permanência na escola pública."
+    },
+    "4.2": {
+     "institucional": "Até 2030, assegurar a todas as meninas e meninos o desenvolvimento integral na primeira infância, acesso a cuidados e à educação infantil de qualidade, de modo que estejam preparados para o ensino fundamental.",
+     "operacional": "Desenvolvimento integral na primeira infância, de zero a seis anos, creches, pré-escolas, estimulação infantil e apoio às famílias nessa etapa.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 14
+     },
+     "aparicoes_top3": {
+      "educacao": 122
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem desenvolvimento integral na primeira infância (0 a 6 anos), com creches, pré-escolas, estimulação infantil, atividades lúdicas para bebês e crianças pequenas ou apoio a famílias na primeira infância."
+    },
+    "4.3": {
+     "institucional": "Até 2030, assegurar a equidade (gênero, raça, renda, território e outros) de acesso e permanência à educação profissional e à educação superior de qualidade, de forma gratuita ou a preços acessíveis.",
+     "operacional": "Acesso e permanência no ensino superior e técnico, preparação para processos seletivos, apoio a estudantes de baixa renda, monitoria e mentoria acadêmica.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 50,
+      "sociedade_civil": 29
+     },
+     "aparicoes_top3": {
+      "educacao": 280
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam acesso ao ensino superior e técnico, com cursinhos pré-vestibular, preparação para ENEM, apoio a estudantes universitários de baixa renda, monitoria, mentoria acadêmica ou auxílio para permanência no ensino superior."
+    },
+    "4.4": {
+     "institucional": "Até 2030, aumentar substancialmente o número de jovens e adultos que tenham as competências necessárias, sobretudo técnicas e profissionais, para o emprego, trabalho decente e empreendedorismo.",
+     "operacional": "Qualificação profissional e formação técnica de jovens e adultos, aprendizagem no trabalho, empreendedorismo, inclusão produtiva e formação em ofícios.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 286,
+      "sociedade_civil": 206
+     },
+     "aparicoes_top3": {
+      "educacao": 147
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de qualificação profissional e formação técnica para jovens e adultos, como cursos profissionalizantes, programa jovem aprendiz, capacitação para o mercado de trabalho, empreendedorismo, inclusão produtiva ou formação em ofícios."
+    },
+    "4.5": {
+     "institucional": "Até 2030, eliminar as desigualdades de gênero e raça na educação e garantir a equidade de acesso, permanência e êxito em todos os níveis, etapas e modalidades de ensino para os grupos em situação de vulnerabilidade, sobretudo as pessoas com deficiência, populações do campo, populações itinerantes, comunidades indígenas e tradicionais, adolescentes e jovens em cumprimento de medidas socioeducativas e população em situação de rua ou em privação de liberdade.",
+     "operacional": "Desigualdades educacionais entre grupos, educação de pessoas com deficiência, educação do campo, educação indígena, escolarização de pessoas privadas de liberdade e disparidades de raça e gênero na escola.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 66,
+      "sociedade_civil": 58
+     },
+     "aparicoes_top3": {
+      "educacao": 296
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que garantem educação a grupos vulneráveis, com atendimento educacional a pessoas com deficiência, educação no campo, educação indígena, educação para pessoas em medidas socioeducativas ou privadas de liberdade, educação inclusiva ou enfrentamento de desigualdades de raça e gênero na escola."
+    },
+    "4.6": {
+     "institucional": "Até 2030, garantir que todos os jovens e adultos estejam alfabetizados, tendo adquirido os conhecimentos básicos em leitura, escrita e matemática.",
+     "operacional": "Alfabetização de jovens e adultos, letramento e numeramento básicos de quem não se escolarizou na idade própria.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 50,
+      "sociedade_civil": 18
+     },
+     "aparicoes_top3": {
+      "educacao": 50
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de alfabetização de jovens e adultos (EJA), com aulas de leitura, escrita e matemática básica para quem não teve oportunidade na idade própria."
+    },
+    "4.7": {
+     "institucional": "Até 2030, garantir que todos os alunos adquiram conhecimentos e habilidades necessárias para promover o desenvolvimento sustentável, inclusive por meio da educação para o desenvolvimento sustentável e estilos de vida sustentáveis, direitos humanos, igualdade de gênero, promoção de uma cultura de paz e não violência, cidadania global e valorização da diversidade cultural.",
+     "operacional": "Componente educativo ou formativo que dissemina conhecimento sobre direitos humanos, cidadania, sustentabilidade, cultura de paz, diversidade cultural e igualdade, mediante oficinas, cursos, palestras e formações.",
+     "exclusoes": "Atribuída pela presença de componente educativo sobre sustentabilidade, cidadania ou direitos humanos, não pelo tema tratado na atividade.",
+     "roteamento": "criterio_llm",
+     "nota_curadoria": "Frequência elevada confirmada pela coordenação como característica real do universo do Selo Educação, não como hábito de curadoria. Atenção ao viés de público: a meta tende a acompanhar iniciativas dirigidas a estudantes.",
+     "uso_curadoria": {
+      "educacao": 838,
+      "sociedade_civil": 216
+     },
+     "aparicoes_top3": {
+      "educacao": 525
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos com componente educativo ou formativo (oficinas, palestras, cursos, workshops, capacitações, rodas de conversa, atividades culturais ou esportivas) que disseminam conhecimentos sobre direitos humanos, cidadania, sustentabilidade, cultura de paz, diversidade cultural, igualdade ou desenvolvimento pessoal e social."
+    },
+    "4.a": {
+     "institucional": "Ofertar infraestrutura física escolar adequada às necessidades da criança, acessível às pessoas com deficiências e sensível ao gênero, que garanta a existência de ambientes de aprendizagem seguros, não violentos, inclusivos e eficazes para todos.",
+     "operacional": "Infraestrutura física escolar e ambientes de aprendizagem, instalações, acessibilidade, mobiliário, equipamentos e materiais didáticos.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 15,
+      "sociedade_civil": 17
+     },
+     "aparicoes_top3": {
+      "educacao": 91
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que melhoram a infraestrutura física de escolas e ambientes de aprendizagem, com reformas, doação de equipamentos, melhoria de acessibilidade, mobiliário ou materiais didáticos."
+    },
+    "4.b": {
+     "institucional": "Ampliar o número de bolsas de estudo para ensino superior, incluindo programas de formação profissional, de tecnologia da informação e da comunicação, técnicos, de engenharia e programas científicos.",
+     "operacional": "Bolsas de estudo, auxílio financeiro e subsídio à formação superior, técnica ou profissionalizante.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 164
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que oferecem bolsas de estudo, auxílio financeiro ou subsídio para que estudantes possam cursar ensino superior, técnico ou profissionalizante."
+    }
+   }
+  },
+  "5": {
+   "nome": "Igualdade de Gênero",
+   "metas": {
+    "5.1": {
+     "institucional": "Eliminar todas as formas de discriminação de gênero, nas suas intersecções com raça, etnia, idade, deficiência, orientação sexual, identidade de gênero, territorialidade, cultura, religião e nacionalidade, em especial para as meninas e mulheres do campo, da floresta, das águas e das periferias urbanas.",
+     "operacional": "Discriminação de gênero e ações afirmativas para mulheres, equidade de gênero estrutural, direitos de mulheres e de pessoas LGBTQIA+, misoginia e homofobia.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 14,
+      "sociedade_civil": 16
+     },
+     "aparicoes_top3": {
+      "educacao": 258
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos cuja finalidade central é o enfrentamento da discriminação de gênero, com ações afirmativas para mulheres, promoção de equidade de gênero estrutural, defesa de direitos de mulheres, pessoas LGBTQIA+ ou enfrentamento da misoginia e da homofobia."
+    },
+    "5.2": {
+     "institucional": "Eliminar todas as formas de violência de gênero nas esferas pública e privada, destacando a violência sexual, o tráfico de pessoas e os homicídios, em especial para as mulheres do campo, da floresta, das águas e das periferias urbanas.",
+     "operacional": "Violência contra a mulher, violência doméstica e sexual, feminicídio, tráfico de pessoas e acolhimento de mulheres em situação de violência.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 15,
+      "sociedade_civil": 5
+     },
+     "aparicoes_top3": {
+      "educacao": 37
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de enfrentamento à violência contra a mulher, com acolhimento de mulheres em situação de violência doméstica ou sexual, prevenção do feminicídio, combate ao tráfico de pessoas ou capacitação sobre violência de gênero."
+    },
+    "5.3": {
+     "institucional": "Eliminar todas as práticas nocivas, como os casamentos e uniões precoces, forçados e de crianças e jovens.",
+     "operacional": "Casamento infantil, uniões forçadas, gravidez precoce e práticas tradicionais nocivas a meninas e adolescentes.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência no Selo Educação e com 1 ocorrência(s) na Sociedade Civil. Mantida no índice, com precedentes disponíveis apenas no segundo programa.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 15
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que combatem casamento infantil, uniões forçadas, gravidez precoce ou práticas tradicionais nocivas a meninas e adolescentes."
+    },
+    "5.4": {
+     "institucional": "Eliminar a desigualdade na divisão sexual do trabalho remunerado e não remunerado, inclusive no trabalho doméstico e de cuidados, promovendo maior autonomia de todas as mulheres, por meio de políticas públicas e da promoção da responsabilidade compartilhada dentro das famílias.",
+     "operacional": "Autonomia econômica das mulheres, divisão sexual do trabalho, trabalho doméstico e de cuidado não remunerado e responsabilidades familiares.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 13
+     },
+     "aparicoes_top3": {
+      "educacao": 65
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem autonomia econômica de mulheres e equidade na divisão de cuidados, com geração de renda para mulheres, valorização do trabalho doméstico, apoio a mulheres cuidadoras ou divisão de responsabilidades familiares."
+    },
+    "5.5": {
+     "institucional": "Garantir a participação plena e efetiva das mulheres e a igualdade de oportunidades para a liderança em todos os níveis de tomada de decisão na esfera pública, em suas dimensões política e econômica.",
+     "operacional": "Protagonismo, liderança e participação política de mulheres, representação em posições de decisão e formação política feminina.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 9,
+      "sociedade_civil": 25
+     },
+     "aparicoes_top3": {
+      "educacao": 83
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem protagonismo, liderança e participação política de mulheres, com formação política, apoio a candidaturas, mentoria para liderança feminina ou empoderamento de mulheres em posições de decisão."
+    },
+    "5.b": {
+     "institucional": "Garantir a igualdade de gênero no acesso e produção da informação, conteúdos de comunicação e mídias, habilidades de uso e produção das tecnologias de informação e comunicação, no acesso e produção do conhecimento científico em todas as áreas.",
+     "operacional": "Acesso de mulheres e meninas à tecnologia, à ciência e à produção de conhecimento, inclusão digital feminina e formação em áreas científicas e tecnológicas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 20,
+      "sociedade_civil": 13
+     },
+     "aparicoes_top3": {
+      "educacao": 308
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam o acesso de mulheres e meninas à tecnologia, ciência e produção de conhecimento, como meninas na ciência, mulheres na tecnologia, inclusão digital feminina ou formação em STEM para mulheres."
+    }
+   }
+  },
+  "6": {
+   "nome": "Água Potável e Saneamento",
+   "metas": {
+    "6.1": {
+     "institucional": "Até 2030, alcançar o acesso universal e equitativo à água para consumo humano, segura e acessível para todas e todos.",
+     "operacional": "Acesso à água potável para consumo humano, abastecimento, cisternas, poços e comunidades sem fornecimento regular.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 2
+     },
+     "aparicoes_top3": {
+      "educacao": 9
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que garantem acesso à água potável para consumo humano, com construção de cisternas, poços, sistemas de abastecimento ou doação de água a comunidades sem acesso."
+    },
+    "6.2": {
+     "institucional": "Até 2030, alcançar o acesso a saneamento e higiene adequados e equitativos para todos, e acabar com a defecação a céu aberto, com especial atenção para as necessidades das mulheres e meninas e daqueles em situação de vulnerabilidade.",
+     "operacional": "Saneamento básico e higiene, esgotamento sanitário, instalações sanitárias e práticas de higiene em comunidades desatendidas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 2
+     },
+     "aparicoes_top3": {
+      "educacao": 27
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam saneamento básico e higiene, com construção de fossas, banheiros, melhoria sanitária ou educação em higiene em comunidades sem saneamento."
+    },
+    "6.3": {
+     "institucional": "Até 2030, melhorar a qualidade da água nos corpos hídricos, reduzindo a poluição, eliminando despejos e minimizando o lançamento de materiais e substâncias perigosas, reduzindo pela metade a proporção do lançamento de efluentes não tratados e aumentando substancialmente o reciclo e reuso seguro localmente.",
+     "operacional": "Qualidade da água, poluição hídrica, tratamento de efluentes, reuso e monitoramento de corpos d'água.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 8,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 38
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que melhoram a qualidade da água, com despoluição de rios, tratamento de efluentes, reuso de água, monitoramento de corpos hídricos ou redução de contaminação."
+    },
+    "6.4": {
+     "institucional": "Até 2030, aumentar substancialmente a eficiência do uso da água em todos os setores, assegurando retiradas sustentáveis e o abastecimento de água doce para reduzir substancialmente o número de pessoas que sofrem com a escassez.",
+     "operacional": "Eficiência no uso da água, captação de água da chuva, irrigação, desperdício e escassez hídrica.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 2
+     },
+     "aparicoes_top3": {
+      "educacao": 166
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que aumentam eficiência no uso da água, com captação de água da chuva, reuso, irrigação eficiente, combate ao desperdício ou apoio a comunidades em escassez hídrica."
+    },
+    "6.6": {
+     "institucional": "Até 2020, proteger e restaurar ecossistemas relacionados com a água, incluindo montanhas, florestas, zonas úmidas, rios, aquíferos e lagos, reduzindo os impactos da ação humana.",
+     "operacional": "Ecossistemas hídricos, matas ciliares, nascentes, rios, lagos e áreas úmidas, conservação e restauração.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 13
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que protegem e restauram ecossistemas hídricos, com recuperação de matas ciliares, proteção de nascentes, conservação de rios, lagos e áreas úmidas."
+    },
+    "6.b": {
+     "institucional": "Apoiar e fortalecer a participação das comunidades locais, priorizando o controle social para melhorar a gestão da água e do saneamento.",
+     "operacional": "Participação comunitária na gestão da água e do saneamento, comitês de bacia, conselhos e controle social dos serviços.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 4,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 47
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que fortalecem a participação comunitária na gestão da água e saneamento, com comitês de bacia, conselhos de saneamento, mobilização social ou controle social sobre serviços de água e esgoto."
+    }
+   }
+  },
+  "7": {
+   "nome": "Energia Limpa e Acessível",
+   "metas": {
+    "7.1": {
+     "institucional": "Até 2030, manter elevada a participação de energias renováveis na matriz energética nacional.",
+     "operacional": "Energias renováveis em uso local, geração solar, eólica e de biomassa e substituição de fontes convencionais.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 42
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam o uso de energias renováveis, com instalação de painéis solares, energia eólica, biomassa ou outras fontes limpas em comunidades, escolas ou organizações."
+    },
+    "7.2": {
+     "institucional": "Até 2030, aumentar substancialmente a participação de energias renováveis na matriz energética global.",
+     "operacional": "Expansão das energias renováveis em escala, difusão de tecnologias de energia limpa e transição energética.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 7,
+      "sociedade_civil": 4
+     },
+     "aparicoes_top3": {
+      "educacao": 35
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem energias renováveis em escala, com pesquisa, advocacy ou disseminação de tecnologias de energia limpa."
+    },
+    "7.b": {
+     "institucional": "Até 2030, expandir a infraestrutura e aprimorar a tecnologia para o fornecimento de serviços de energia modernos e sustentáveis para todos.",
+     "operacional": "Acesso à energia em comunidades isoladas ou vulneráveis, eletrificação rural, sistemas autônomos e eficiência energética em habitação popular.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 6,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 39
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que expandem acesso à energia em comunidades isoladas ou vulneráveis, com eletrificação rural, sistemas autônomos de energia ou eficiência energética em residências populares."
+    }
+   }
+  },
+  "8": {
+   "nome": "Trabalho Decente e Crescimento Econômico",
+   "metas": {
+    "8.2": {
+     "institucional": "Atingir níveis mais elevados de produtividade, por meio da diversificação e com agregação de valor, modernização tecnológica, inovação, gestão, e qualificação do trabalhador; com foco em setores intensivos em mão-de-obra.",
+     "operacional": "Produtividade do trabalho, qualificação tecnológica, modernização de processos, inovação em pequenos negócios e agregação de valor.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 7,
+      "sociedade_civil": 32
+     },
+     "aparicoes_top3": {
+      "educacao": 75
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que aumentam produtividade e qualificação no trabalho, com capacitação tecnológica, modernização de processos, inovação em pequenos negócios ou agregação de valor a produtos."
+    },
+    "8.3": {
+     "institucional": "Promover o desenvolvimento com a geração de trabalho digno; a formalização; o crescimento das micro, pequenas e médias empresas; o empreendedorismo e a inovação.",
+     "operacional": "Empreendedorismo, geração de renda e pequenos negócios, incubação, microcrédito, formalização, economia solidária e gestão de empreendimentos.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 38,
+      "sociedade_civil": 59
+     },
+     "aparicoes_top3": {
+      "educacao": 106
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de empreendedorismo, geração de renda e apoio a pequenos negócios, com incubação, microcrédito, formalização de MEIs, capacitação em gestão, economia solidária ou apoio a empreendedoras."
+    },
+    "8.5": {
+     "institucional": "Até 2030, reduzir em 40% a taxa de desemprego e outras formas de subutilização da força de trabalho, garantindo o trabalho digno, com ênfase na igualdade de remuneração para trabalho de igual valor.",
+     "operacional": "Desemprego e trabalho digno, intermediação de mão de obra, inserção produtiva e qualificação para ocupações específicas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 27
+     },
+     "aparicoes_top3": {
+      "educacao": 57
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que reduzem desemprego e promovem trabalho digno, com intermediação de mão de obra, encaminhamento ao emprego, qualificação para vagas específicas ou inserção produtiva de pessoas desempregadas."
+    },
+    "8.7": {
+     "institucional": "Até 2025 erradicar o trabalho em condições análogas às de escravo, o tráfico de pessoas e o trabalho infantil, principalmente nas suas piores formas.",
+     "operacional": "Trabalho infantil, trabalho análogo à escravidão e tráfico de pessoas, prevenção, identificação e atenção às vítimas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 4
+     },
+     "aparicoes_top3": {
+      "educacao": 8
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de enfrentamento ao trabalho infantil, trabalho escravo ou tráfico de pessoas, com resgate de crianças do trabalho infantil, acolhimento de vítimas ou prevenção a essas violações."
+    },
+    "8.8": {
+     "institucional": "Reduzir o grau de descumprimento da legislação trabalhista, no que diz respeito ao registro, às condições de trabalho, às normas de saúde e segurança no trabalho, com ênfase nos trabalhadores em situação de vulnerabilidade.",
+     "operacional": "Direitos trabalhistas, saúde e segurança ocupacional, informalidade e proteção de trabalhadores em situação vulnerável.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 14
+     },
+     "aparicoes_top3": {
+      "educacao": 20
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que protegem direitos trabalhistas e saúde no trabalho, com orientação jurídica, segurança ocupacional, formalização de relações de trabalho ou defesa de trabalhadores vulneráveis."
+    },
+    "8.9": {
+     "institucional": "Até 2030, conceber e implementar políticas para promover o turismo sustentável e responsável, acessível a todos; e que gere emprego e trabalho digno, melhore a distribuição de renda e promova a cultura e os produtos locais.",
+     "operacional": "Turismo sustentável e de base comunitária, ecoturismo, produção artesanal e renda associada ao turismo responsável.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 4
+     },
+     "aparicoes_top3": {
+      "educacao": 50
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de turismo sustentável e cultura local, com turismo de base comunitária, valorização de produtos artesanais, ecoturismo ou geração de renda via turismo responsável."
+    }
+   }
+  },
+  "9": {
+   "nome": "Indústria, Inovação e Infraestrutura",
+   "metas": {
+    "9.2": {
+     "institucional": "Promover a industrialização inclusiva e sustentável e, até 2030, aumentar significativamente a participação da indústria no setor de emprego e no PIB, de acordo com as circunstâncias nacionais.",
+     "operacional": "Indústria inclusiva e sustentável, pequenas indústrias, inclusão produtiva industrial e industrialização local.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 127
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem indústria inclusiva e sustentável, com apoio a pequenas indústrias, inclusão produtiva industrial ou industrialização local."
+    },
+    "9.4": {
+     "institucional": "Até 2030, modernizar a infraestrutura e reabilitar as indústrias para torná-las sustentáveis, com eficiência aumentada no uso de recursos e maior adoção de tecnologias e processos industriais limpos e ambientalmente corretos.",
+     "operacional": "Modernização da infraestrutura e dos processos produtivos com tecnologias limpas, eficiência no uso de recursos e redução de impacto.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 12,
+      "sociedade_civil": 5
+     },
+     "aparicoes_top3": {
+      "educacao": 25
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que modernizam infraestrutura com sustentabilidade, com tecnologias limpas em processos produtivos, eficiência no uso de recursos ou produção mais sustentável."
+    },
+    "9.c": {
+     "institucional": "Aumentar significativamente o acesso às tecnologias de informação e comunicação e se empenhar para oferecer acesso universal e a preços acessíveis à internet.",
+     "operacional": "Inclusão digital e acesso a tecnologias de informação e comunicação, conectividade, equipamentos e letramento digital em comunidades vulneráveis.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 9
+     },
+     "aparicoes_top3": {
+      "educacao": 108
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de inclusão digital, com doação de computadores e celulares, telecentros, acesso à internet para comunidades vulneráveis ou letramento digital."
+    }
+   }
+  },
+  "10": {
+   "nome": "Redução das Desigualdades",
+   "metas": {
+    "10.2": {
+     "institucional": "Até 2030, empoderar e promover a inclusão social, econômica e política de todos, de forma a reduzir as desigualdades, independentemente da idade, gênero, deficiência, raça, etnia, nacionalidade, religião, condição econômica ou outra.",
+     "operacional": "Inclusão social, econômica e política de populações em situação de vulnerabilidade ou risco de exclusão, incluindo pessoas em situação de rua, migrantes, refugiados, pessoas com deficiência, idosos, população LGBTQIA+, moradores de periferias e pessoas privadas de liberdade.",
+     "exclusoes": "Atribuída pela condição de exclusão do público atendido, não por a atividade discutir desigualdade.",
+     "roteamento": "criterio_llm",
+     "uso_curadoria": {
+      "educacao": 113,
+      "sociedade_civil": 223
+     },
+     "aparicoes_top3": {
+      "educacao": 199
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos cujo público-alvo é composto por pessoas em situação de vulnerabilidade social ou em risco de exclusão (pessoas em situação de rua, migrantes, refugiados, pessoas com deficiência, idosos vulneráveis, crianças em risco, população LGBTQIA+, populações periféricas, pessoas em privação de liberdade), com ações que promovem sua inclusão social, econômica ou política."
+    }
+   }
+  },
+  "11": {
+   "nome": "Cidades e Comunidades Sustentáveis",
+   "metas": {
+    "11.1": {
+     "institucional": "Até 2030, garantir o acesso de todos à habitação segura, adequada e a preço acessível, e aos serviços básicos e urbanizar as favelas.",
+     "operacional": "Moradia digna, habitação popular, regularização fundiária, urbanização de assentamentos precários e situação de rua.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 19
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que ampliam acesso à moradia digna, com construção ou reforma de habitação popular, regularização fundiária, urbanização de favelas ou apoio a pessoas em situação de rua para acesso à moradia."
+    },
+    "11.3": {
+     "institucional": "Até 2030, aumentar a urbanização inclusiva e sustentável, aprimorar as capacidades para o planejamento, para o controle social e para a gestão participativa, integrada e sustentável dos assentamentos humanos, em todas as unidades da federação.",
+     "operacional": "Planejamento urbano participativo, gestão democrática do território, plano diretor e controle social sobre decisões urbanas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 11
+     },
+     "aparicoes_top3": {
+      "educacao": 19
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de planejamento urbano participativo, com participação comunitária em decisões sobre a cidade, controle social do plano diretor ou gestão democrática do território urbano."
+    },
+    "11.4": {
+     "institucional": "Fortalecer as iniciativas para proteger e salvaguardar o patrimônio natural e cultural do Brasil, incluindo seu patrimônio material e imaterial.",
+     "operacional": "Patrimônio cultural e natural, restauração de bens históricos, saberes tradicionais, festas populares e memória de comunidades.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 15,
+      "sociedade_civil": 11
+     },
+     "aparicoes_top3": {
+      "educacao": 25
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de proteção e valorização do patrimônio cultural e natural, com restauração de patrimônio histórico, valorização de saberes tradicionais, festas populares ou memória cultural de comunidades."
+    },
+    "11.6": {
+     "institucional": "Até 2030, reduzir o impacto ambiental negativo per capita das cidades, melhorando os índices de qualidade do ar e a gestão de resíduos sólidos; e garantir que todas as cidades com acima de 500 mil habitantes tenham implementado sistemas de monitoramento de qualidade do ar e planos de gerenciamento de resíduos sólidos.",
+     "operacional": "Impacto ambiental das cidades, resíduos sólidos urbanos, qualidade do ar, poluição urbana e monitoramento ambiental.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 10,
+      "sociedade_civil": 8
+     },
+     "aparicoes_top3": {
+      "educacao": 212
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que reduzem o impacto ambiental das cidades, com gestão de resíduos sólidos urbanos, melhoria da qualidade do ar, redução de poluição urbana ou monitoramento ambiental urbano."
+    },
+    "11.7": {
+     "institucional": "Até 2030, proporcionar o acesso universal a espaços públicos seguros, inclusivos, acessíveis e verdes, em particular para mulheres, crianças e adolescentes, pessoas idosas e pessoas com deficiência, e demais grupos em situação de vulnerabilidade.",
+     "operacional": "Espaços públicos, praças, parques e áreas verdes, acessibilidade e uso por grupos vulneráveis.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 22,
+      "sociedade_civil": 18
+     },
+     "aparicoes_top3": {
+      "educacao": 43
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de revitalização ou criação de espaços públicos como praças, parques e áreas verdes, com foco em acessibilidade e uso por grupos vulneráveis."
+    },
+    "11.a": {
+     "institucional": "Apoiar a integração econômica, social e ambiental em áreas metropolitanas e entre áreas urbanas, periurbanas, rurais e cidades gêmeas, considerando territórios de povos e comunidades tradicionais, por meio da cooperação interfederativa, reforçando o planejamento nacional, regional e local de desenvolvimento.",
+     "operacional": "Relações entre cidade e campo, articulação metropolitana e desenvolvimento territorial de comunidades tradicionais.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 6
+     },
+     "aparicoes_top3": {
+      "educacao": 11
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de integração territorial entre cidade e campo, articulação metropolitana ou desenvolvimento territorial inclusivo de comunidades tradicionais."
+    }
+   }
+  },
+  "12": {
+   "nome": "Consumo e Produção Responsáveis",
+   "metas": {
+    "12.2": {
+     "institucional": "Até 2030, alcançar a gestão sustentável e o uso eficiente dos recursos naturais.",
+     "operacional": "Uso eficiente de recursos naturais, gestão ambiental, consumo de matérias-primas e conservação de recursos.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 17,
+      "sociedade_civil": 6
+     },
+     "aparicoes_top3": {
+      "educacao": 53
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem uso eficiente de recursos naturais, com gestão ambiental, redução do consumo de matérias-primas ou conservação de recursos."
+    },
+    "12.3": {
+     "institucional": "Até 2030, reduzir o desperdício de alimentos per capita nacional, em nível de varejo e do consumidor, e reduzir as perdas de alimentos ao longo das cadeias de produção e abastecimento, incluindo as perdas pós-colheita.",
+     "operacional": "Desperdício de alimentos, perdas pós-colheita, aproveitamento integral e redistribuição de excedentes.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 9
+     },
+     "aparicoes_top3": {
+      "educacao": 72
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de combate ao desperdício de alimentos, com banco de alimentos, aproveitamento integral, redistribuição de excedentes ou redução de perdas pós-colheita."
+    },
+    "12.4": {
+     "institucional": "Até 2020, alcançar o manejo ambientalmente saudável dos produtos químicos e todos os resíduos, ao longo de todo o ciclo de vida, de acordo com os marcos internacionais acordados, e reduzir significativamente a liberação destes para o ar, água e solo, para minimizar seus impactos negativos sobre a saúde humana e o meio ambiente.",
+     "operacional": "Manejo de produtos químicos e resíduos perigosos, descarte de eletrônicos, óleos, pilhas e medicamentos e contaminação associada.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 13,
+      "sociedade_civil": 5
+     },
+     "aparicoes_top3": {
+      "educacao": 58
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de manejo de produtos químicos e resíduos perigosos, com descarte adequado de eletrônicos, óleos, pilhas, medicamentos ou outros resíduos contaminantes."
+    },
+    "12.5": {
+     "institucional": "Até 2030, reduzir substancialmente a geração de resíduos por meio da Economia Circular e suas ações de prevenção, redução, reciclagem e reuso de resíduos.",
+     "operacional": "Coleta seletiva, reciclagem, reuso, compostagem, economia circular e trabalho de catadores de materiais recicláveis.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 53,
+      "sociedade_civil": 84
+     },
+     "aparicoes_top3": {
+      "educacao": 192
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de coleta seletiva, reciclagem, reuso, compostagem, economia circular ou apoio a catadores de materiais recicláveis."
+    },
+    "12.8": {
+     "institucional": "Até 2030, garantir que as pessoas, em todos os lugares, tenham informação relevante e conscientização sobre o desenvolvimento sustentável e estilos de vida em harmonia com a natureza, em consonância com o Programa Nacional de Educação Ambiental (PRONEA).",
+     "operacional": "Conscientização ambiental e educação para a sustentabilidade, sensibilização, divulgação de informação ambiental e mobilização social, sem alteração direta dos padrões de produção e consumo.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 166,
+      "sociedade_civil": 58
+     },
+     "aparicoes_top3": {
+      "educacao": 1045
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos cujo principal resultado é a conscientização ambiental e educação para sustentabilidade, com campanhas de sensibilização, palestras sobre meio ambiente, divulgação de informação ambiental ou mobilização social pela sustentabilidade (sem necessariamente alterar a produção/consumo de resíduos)."
+    }
+   }
+  },
+  "13": {
+   "nome": "Ação Contra a Mudança Global do Clima",
+   "metas": {
+    "13.3": {
+     "institucional": "Melhorar a educação, aumentar a conscientização e a capacidade humana e institucional sobre mudança do clima, seus riscos, mitigação, adaptação, impactos e alerta precoce.",
+     "operacional": "Mudança climática, educação e conscientização sobre clima, mitigação de emissões, adaptação e riscos climáticos.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 60,
+      "sociedade_civil": 42
+     },
+     "aparicoes_top3": {
+      "educacao": 74
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de educação e conscientização sobre mudanças climáticas, com capacitação sobre mitigação, adaptação, riscos climáticos ou ações concretas de redução de emissões e adaptação."
+    }
+   }
+  },
+  "14": {
+   "nome": "Vida na Água",
+   "metas": {
+    "14.1": {
+     "institucional": "Conservação e uso sustentável dos oceanos, dos mares e dos recursos marinhos para o desenvolvimento sustentável.",
+     "operacional": "Conservação marinha e costeira, poluição dos oceanos, praias, manguezais e recifes de coral.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 8,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 50
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de conservação marinha, com limpeza de praias, proteção de oceanos, manguezais, recifes de coral ou redução da poluição marinha."
+    },
+    "14.b": {
+     "institucional": "Proporcionar o acesso dos pescadores artesanais de pequena escala aos recursos marinhos e mercados.",
+     "operacional": "Pesca artesanal e de pequena escala, organização de pescadores, acesso a mercados, beneficiamento de pescado e territórios pesqueiros.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 43
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que apoiam pescadores artesanais, com organização da pesca de pequena escala, acesso a mercados, beneficiamento de pescado ou defesa de territórios pesqueiros."
+    }
+   }
+  },
+  "15": {
+   "nome": "Vida Terrestre",
+   "metas": {
+    "15.1": {
+     "institucional": "Até 2020, assegurar a conservação, recuperação e uso sustentável de ecossistemas terrestres e de água doce interiores e seus serviços, em especial florestas, zonas úmidas, montanhas e terras áridas, em conformidade com as obrigações decorrentes dos acordos internacionais.",
+     "operacional": "Conservação e recuperação de ecossistemas terrestres, reflorestamento, áreas degradadas e proteção de biomas.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 42
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de conservação e recuperação de ecossistemas terrestres, com reflorestamento, proteção de florestas, recuperação de áreas degradadas ou conservação de biomas."
+    },
+    "15.3": {
+     "institucional": "Até 2030, combater a desertificação, restaurar a terra e o solo degradado, incluindo terrenos afetados pela desertificação, secas e inundações, e lutar para alcançar um mundo neutro em termos de degradação do solo.",
+     "operacional": "Desertificação, degradação e recuperação do solo, erosão e regiões sob estresse ambiental.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 12,
+      "sociedade_civil": 5
+     },
+     "aparicoes_top3": {
+      "educacao": 16
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de combate à desertificação e recuperação do solo, com técnicas de recuperação de áreas degradadas, controle da erosão ou apoio a regiões em desertificação."
+    },
+    "15.4": {
+     "institucional": "Até 2030, assegurar a conservação dos ecossistemas de montanha, incluindo a sua biodiversidade, para melhorar a sua capacidade de proporcionar benefícios essenciais para o desenvolvimento sustentável.",
+     "operacional": "Ecossistemas de montanha e sua biodiversidade.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 0
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de conservação de ecossistemas de montanha e sua biodiversidade."
+    },
+    "15.5": {
+     "institucional": "Tomar medidas urgentes e significativas para reduzir a degradação de habitats naturais, deter a perda de biodiversidade e, até 2020, proteger e evitar a extinção de espécies ameaçadas.",
+     "operacional": "Biodiversidade e fauna, espécies ameaçadas, animais silvestres e conservação de habitats.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 18,
+      "sociedade_civil": 11
+     },
+     "aparicoes_top3": {
+      "educacao": 27
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de proteção da biodiversidade e fauna, com proteção de espécies ameaçadas, resgate e tratamento de animais silvestres ou conservação de habitats."
+    },
+    "15.8": {
+     "institucional": "Até 2020, implementar medidas para evitar a introdução e reduzir significativamente o impacto de espécies exóticas invasoras em ecossistemas terrestres e aquáticos, e controlar ou erradicar as espécies prioritárias.",
+     "operacional": "Espécies exóticas invasoras e seu controle em ecossistemas locais.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 2
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de controle de espécies exóticas invasoras em ecossistemas locais."
+    },
+    "15.b": {
+     "institucional": "Mobilizar significativamente os recursos de todas as fontes e em todos os níveis, para financiar e proporcionar incentivos adequados ao manejo florestal sustentável, inclusive para a conservação e o reflorestamento.",
+     "operacional": "Manejo florestal sustentável, reflorestamento e pagamento por serviços ambientais.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 6,
+      "sociedade_civil": 4
+     },
+     "aparicoes_top3": {
+      "educacao": 27
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de manejo florestal sustentável, reflorestamento ou pagamento por serviços ambientais em áreas florestais."
+    }
+   }
+  },
+  "16": {
+   "nome": "Paz, Justiça e Instituições Eficazes",
+   "metas": {
+    "16.1": {
+     "institucional": "Reduzir significativamente todas as formas de violência e as taxas de mortalidade relacionadas, em todos os lugares, inclusive com a redução de 1/3 das taxas de feminicídio e de homicídios de crianças, adolescentes, jovens, negros, indígenas, mulheres e LGBT.",
+     "operacional": "Violência letal, homicídios, mediação de conflitos, cultura de paz em territórios violentos e violência contra grupos vulneráveis.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 5,
+      "sociedade_civil": 9
+     },
+     "aparicoes_top3": {
+      "educacao": 9
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de prevenção à violência letal, com prevenção de homicídios, mediação de conflitos, cultura de paz em territórios violentos ou enfrentamento à violência contra grupos vulneráveis."
+    },
+    "16.2": {
+     "institucional": "Proteger todas as crianças e adolescentes do abuso, exploração, tráfico, tortura e todas as outras formas de violência.",
+     "operacional": "Violência sexual, abuso, exploração e maus-tratos contra crianças e adolescentes, prevenção, denúncia e acolhimento de vítimas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 9,
+      "sociedade_civil": 20
+     },
+     "aparicoes_top3": {
+      "educacao": 23
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de proteção de crianças e adolescentes contra violência sexual, abuso, exploração ou maus-tratos, com acolhimento de vítimas, denúncia ou prevenção."
+    },
+    "16.3": {
+     "institucional": "Fortalecer o Estado de Direito e garantir acesso à justiça a todos, especialmente aos que se encontram em situação de vulnerabilidade.",
+     "operacional": "Acesso à justiça e Estado de Direito, assistência jurídica, defensoria, mediação de conflitos e educação em direitos.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 49,
+      "sociedade_civil": 32
+     },
+     "aparicoes_top3": {
+      "educacao": 118
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de acesso à justiça e direitos humanos, com orientação jurídica gratuita, defensoria popular, mediação de conflitos, apoio jurídico a vulneráveis ou educação em direitos."
+    },
+    "16.5": {
+     "institucional": "Reduzir substancialmente a sonegação fiscal, a corrupção e o suborno em todas as suas formas.",
+     "operacional": "Corrupção, transparência pública e integridade institucional.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 6
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de combate à corrupção, transparência pública ou integridade institucional."
+    },
+    "16.6": {
+     "institucional": "Ampliar a transparência, a accountability e a efetividade das instituições, em todos os níveis.",
+     "operacional": "Instituições eficazes e responsáveis, transparência, controle social de políticas, prestação de contas e gestão pública.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 36,
+      "sociedade_civil": 13
+     },
+     "aparicoes_top3": {
+      "educacao": 18
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de fortalecimento de instituições, com transparência pública, controle social de políticas, accountability ou modernização de gestão pública."
+    },
+    "16.7": {
+     "institucional": "Garantir a tomada de decisão responsiva, inclusiva, participativa e representativa em todos os níveis.",
+     "operacional": "Participação cidadã e democracia, conselhos participativos, deliberação coletiva e educação política.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 16,
+      "sociedade_civil": 28
+     },
+     "aparicoes_top3": {
+      "educacao": 67
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que promovem participação cidadã e democracia, com conselhos participativos, conferências, mobilização para deliberação coletiva ou educação política."
+    },
+    "16.9": {
+     "institucional": "Até 2030, fornecer identidade civil para todos, incluindo o registro de nascimento, em especial para os povos ciganos, comunidades quilombolas, povos indígenas, povos e comunidades tradicionais de matriz africana e de terreiros, populações ribeirinhas e extrativistas, além de mulheres trabalhadoras rurais, população em situação de rua, população em situação de privação de liberdade e população LGBT.",
+     "operacional": "Documentação civil e identidade legal, registro de nascimento e regularização documental.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência no Selo Educação e com 6 ocorrência(s) na Sociedade Civil. Mantida no índice, com precedentes disponíveis apenas no segundo programa.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 6
+     },
+     "aparicoes_top3": {
+      "educacao": 4
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de garantia de documentação civil, com mutirões de RG, CPF, certidão de nascimento e regularização documental para pessoas sem documentação."
+    },
+    "16.10": {
+     "institucional": "Assegurar o acesso público à informação e proteger as liberdades fundamentais, em conformidade com a legislação nacional e os acordos internacionais.",
+     "operacional": "Acesso à informação pública, liberdades fundamentais e liberdade de imprensa.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 21,
+      "sociedade_civil": 13
+     },
+     "aparicoes_top3": {
+      "educacao": 2
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de acesso à informação pública, defesa de liberdades fundamentais ou liberdade de imprensa."
+    },
+    "16.b": {
+     "institucional": "Promover e fazer cumprir leis e políticas não discriminatórias e afirmativas.",
+     "operacional": "Leis antidiscriminatórias e políticas afirmativas e sua aplicação.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 8,
+      "sociedade_civil": 7
+     },
+     "aparicoes_top3": {
+      "educacao": 0
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de aplicação de leis antidiscriminatórias ou políticas afirmativas."
+    }
+   }
+  },
+  "17": {
+   "nome": "Parcerias e Meios de Implementação",
+   "metas": {
+    "17.17": {
+     "institucional": "Incentivar e promover parcerias eficazes nos âmbitos públicos, público-privados, privados e da sociedade civil, a partir da experiência das estratégias de mobilização de recursos dessas parcerias.",
+     "operacional": "Parceria efetiva entre duas ou mais organizações na execução, envolvendo organizações da sociedade civil, instituições públicas, empresas, fundações, escolas, universidades, conselhos e governos, com mobilização conjunta de recursos e cooperação intersetorial.",
+     "exclusoes": "Atribuída pela existência de organização parceira na execução, não por a atividade mencionar parceria, articulação ou rede.",
+     "roteamento": "estrutural",
+     "nota_curadoria": "Frequência elevada confirmada pela coordenação como característica real do universo do Selo Educação, não como hábito de curadoria.",
+     "uso_curadoria": {
+      "educacao": 722,
+      "sociedade_civil": 505
+     },
+     "aparicoes_top3": {
+      "educacao": 345
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos realizados em parceria entre duas ou mais organizações (organizações da sociedade civil, instituições públicas, empresas privadas, agências internacionais, fundações, instituições religiosas, escolas, universidades, conselhos, governos municipais ou estaduais), com mobilização conjunta de recursos, articulação de atores ou cooperação intersetorial para atingir um objetivo comum. Praticamente todo projeto coexecutado, apoiado, financiado ou realizado em conjunto se enquadra nesta meta."
+    }
+   }
+  },
+  "18": {
+   "nome": "Igualdade Étnico-Racial",
+   "metas": {
+    "18.1": {
+     "institucional": "Eliminar o racismo e a discriminação, tanto direta ou indireta, bem como nas formas múltipla ou agravada, e a intolerância correlata contra os povos indígenas e afrodescendentes nos ambientes públicos e privados de trabalho.",
+     "operacional": "Racismo e discriminação étnico-racial contra povos indígenas e afrodescendentes em ambientes de trabalho, canais de denúncia, sanção institucional e equidade racial no acesso a cargos.",
+     "operacional_v2": "Projetos cujo objetivo central é o combate ao racismo e à discriminação racial no trabalho ou em outros ambientes, com formação antirracista, denúncia de racismo, promoção de equidade racial ou ações afirmativas para negros e indígenas.",
+     "revisao": "texto operacional revisto na v4 (validação com a coordenação e cotejo com a Portaria 198/2025)",
+     "exclusoes": "Não se aplica a projetos de convivência escolar, combate ao bullying ou educação socioemocional sem recorte étnico-racial explícito, nem a ações fora de ambiente de trabalho.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 4
+     },
+     "aparicoes_top3": {
+      "educacao": 637
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de enfrentamento ao racismo e à discriminação étnico-racial contra povos indígenas e afrodescendentes em ambientes públicos e privados de trabalho, com implantação de canais de denúncia de racismo, política interna de sanção e equidade racial no acesso a cargos."
+    },
+    "18.2": {
+     "institucional": "Eliminar todas as formas de violência contra povos indígenas e afrodescendentes nas esferas pública e privada, levando em conta suas interseccionalidades, em particular o homicídio das juventudes, feminicídio e os resultantes de homofobia e transfobia.",
+     "operacional": "Violência contra povos indígenas e afrodescendentes, letalidade da juventude negra, violência policial de recorte racial e ameaça a lideranças indígenas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 1,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 16
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de enfrentamento à violência contra povos indígenas e afrodescendentes, com prevenção do genocídio da juventude negra, combate à violência policial racial ou proteção de lideranças indígenas."
+    },
+    "18.3": {
+     "institucional": "Garantir aos povos indígenas e afrodescendentes tratamento digno, justo e equânime perante os órgãos do sistema de justiça, de segurança pública e administrativos do Estado, assegurando a efetivação e a ampliação do acesso à justiça e o devido processo legal.",
+     "operacional": "Acesso à justiça para povos indígenas e afrodescendentes, discriminação institucional e encarceramento da população negra.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 21
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que garantem acesso à justiça para povos indígenas e afrodescendentes, com defesa jurídica, denúncia de discriminação institucional ou enfrentamento ao encarceramento em massa de negros."
+    },
+    "18.4": {
+     "institucional": "Garantir a representatividade equitativa dos povos indígenas e afrodescendentes nas instâncias, colegiados e órgãos de Estado e no quadro de pessoal de empresas públicas e privadas, levando em conta a interseccionalidade.",
+     "operacional": "Presença de pessoas negras e indígenas em cargos de decisão, conselhos e quadros institucionais, mediante ações afirmativas de recorte étnico-racial.",
+     "operacional_v2": "Projetos que promovem representatividade de negros e indígenas em espaços de poder, com formação de lideranças indígenas e negras, apoio a candidaturas ou ações afirmativas em instituições.",
+     "revisao": "texto operacional reescrito na v3 por sobrerrecuperação medida no corpus Educação",
+     "exclusoes": "Não se aplica a formação de lideranças em geral nem a protagonismo juvenil sem recorte étnico-racial.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 76
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de ampliação da presença de pessoas negras e indígenas em cargos de decisão, conselhos e quadros institucionais, com ações afirmativas de recorte étnico-racial."
+    },
+    "18.5": {
+     "institucional": "Promover a reparação integral das violações socioeconômica e cultural, das perdas territoriais e dos impactos ambientais nos territórios dos povos indígenas e afrodescendentes, especialmente os integrantes de comunidades tradicionais, favelas e comunidades urbanas, garantindo o direito à memória, verdade e justiça.",
+     "operacional": "Reparação histórica a povos indígenas, quilombolas e afrodescendentes, territórios tradicionais, demarcação de terras e perdas territoriais e ambientais.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 7
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de reparação histórica a povos indígenas, quilombolas e afrodescendentes, com defesa de territórios tradicionais, demarcação de terras ou reparação por perdas territoriais e ambientais."
+    },
+    "18.5.a": {
+     "institucional": "Proteger o patrimônio cultural, artístico e religioso dos povos indígenas e afrodescendentes garantindo-lhes os recursos necessários para o resgate, preservação e reconhecimento das memórias e das histórias de seus ancestrais e para o desenvolvimento de linguagens artísticas plurais nos territórios onde vivem.",
+     "operacional": "Patrimônio cultural e religioso de povos indígenas, quilombolas e de matriz africana, terreiros e manifestações tradicionais.",
+     "operacional_v2": "Projetos de preservação de patrimônio cultural e religioso de povos indígenas, afrodescendentes, quilombolas e de matriz africana, com proteção de terreiros, valorização da capoeira, jongo, maracatu, danças tradicionais ou memória ancestral.",
+     "revisao": "texto operacional reescrito na v3 por sobrerrecuperação medida no corpus Educação",
+     "exclusoes": "Não se aplica a atividades artísticas ou culturais sem vínculo com patrimônio indígena, quilombola ou de matriz africana.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "id_anterior": "18.5.1",
+     "nota_id": "Renumerada de 18.5.1 para 18.5.a. A Portaria Conjunta MPI/MIR/SG-PR nº 198/2025 usa o mesmo identificador para uma meta e para um indicador distintos (ex.: \"meta 18.5.1\" e \"indicador 18.5.1\"). A letra elimina a colisão.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 50
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de salvaguarda do patrimônio cultural e religioso de povos indígenas, quilombolas e de matriz africana, com proteção de terreiros e de manifestações tradicionais de origem africana e indígena."
+    },
+    "18.5.b": {
+     "institucional": "Preservar as formas de vivência e convivência estabelecidas pelos povos indígenas e afrodescendentes, bem como sua cosmovisão, liberdade de expressão cultural e religiosa.",
+     "operacional": "Formas de vida e cosmovisão de povos indígenas e afrodescendentes, liberdade religiosa de matriz africana, modos de vida tradicionais e direito à diferença cultural.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "id_anterior": "18.5.2",
+     "nota_id": "Renumerada de 18.5.2 para 18.5.b. A Portaria Conjunta MPI/MIR/SG-PR nº 198/2025 usa o mesmo identificador para uma meta e para um indicador distintos (ex.: \"meta 18.5.1\" e \"indicador 18.5.1\"). A letra elimina a colisão.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 0
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de preservação das formas de vida e cosmovisão de povos indígenas e afrodescendentes, com liberdade religiosa de matriz africana, modos de vida tradicionais ou direito à diferença cultural."
+    },
+    "18.6": {
+     "institucional": "Assegurar moradias adequadas, seguras e sustentáveis aos povos indígenas e afrodescendentes, incluindo comunidades tradicionais, favelas e comunidades urbanas, com garantia de equipamentos e serviços públicos de qualidade, com especial atenção à população em situação de rua.",
+     "operacional": "Moradia e infraestrutura em territórios indígenas, quilombolas e de população afrodescendente, regularização fundiária étnica e serviços públicos em comunidades tradicionais.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência no Selo Educação e com 1 ocorrência(s) na Sociedade Civil. Mantida no índice, com precedentes disponíveis apenas no segundo programa.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 1
+     },
+     "aparicoes_top3": {
+      "educacao": 24
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de moradia digna e infraestrutura para povos indígenas, quilombolas e afrodescendentes em comunidades tradicionais ou periferias urbanas, com regularização fundiária étnica ou serviços públicos em territórios tradicionais."
+    },
+    "18.7": {
+     "institucional": "Assegurar o acesso à atenção à saúde de qualidade, não discriminatória, para os povos indígenas e afrodescendentes, bem como o respeito às suas culturas e saberes ancestrais, garantido o fortalecimento do sistema público de saúde.",
+     "operacional": "Saúde de povos indígenas e da população negra, saúde indígena, anemia falciforme e medicina tradicional.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 3,
+      "sociedade_civil": 2
+     },
+     "aparicoes_top3": {
+      "educacao": 65
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de saúde voltados a povos indígenas e afrodescendentes, com saúde indígena, atenção a doenças prevalentes na população negra (anemia falciforme) ou medicina tradicional indígena."
+    },
+    "18.8": {
+     "institucional": "Assegurar a educação de qualidade e não discriminatória aos afrodescendentes, quilombolas e povos indígenas, bem como o respeito às suas culturas e histórias, garantido o fortalecimento da educação pública.",
+     "operacional": "Educação de afrodescendentes, quilombolas e povos indígenas, educação escolar indígena e escolas quilombolas.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 13,
+      "sociedade_civil": 5
+     },
+     "aparicoes_top3": {
+      "educacao": 128
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de educação para afrodescendentes, quilombolas e povos indígenas, com educação escolar indígena, ensino em escolas quilombolas ou apoio educacional voltado especificamente a essas populações."
+    },
+    "18.8.a": {
+     "institucional": "Garantir o respeito à diversidade linguística, com estabelecimento de políticas linguísticas por parte do Estado, que assegurem o reconhecimento, o uso, o registro, a preservação, vitalização e revitalização das línguas dos povos indígenas.",
+     "operacional": "Línguas indígenas, ensino, registro e revitalização linguística e educação escolar bilíngue em língua originária.",
+     "operacional_v2": "Projetos de preservação e revitalização de línguas indígenas, com ensino bilíngue, registro linguístico ou material didático em línguas originárias.",
+     "revisao": "texto operacional revisto na v4 (validação com a coordenação e cotejo com a Portaria 198/2025)",
+     "exclusoes": "Não se aplica a produção de material didático em geral nem a ensino de idiomas estrangeiros.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "id_anterior": "18.8.1",
+     "nota_id": "Renumerada de 18.8.1 para 18.8.a. A Portaria Conjunta MPI/MIR/SG-PR nº 198/2025 usa o mesmo identificador para uma meta e para um indicador distintos (ex.: \"meta 18.5.1\" e \"indicador 18.5.1\"). A letra elimina a colisão.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 93
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de ensino, registro e revitalização de línguas indígenas, com educação escolar bilíngue em língua originária e letramento em línguas indígenas e tradicionais."
+    },
+    "18.8.b": {
+     "institucional": "Assegurar a inclusão obrigatória de ações de educação antirracista e sobre as culturas e histórias dos povos indígenas e afrodescendentes, por meio de currículos e estratégias formativas em todos níveis educacionais.",
+     "operacional": "Ensino das histórias e culturas africana, afro-brasileira e indígena no currículo escolar, conforme as Leis 10.639/2003 e 11.645/2008.",
+     "operacional_v2": "Projetos de educação antirracista e ensino das culturas e histórias indígenas e afro-brasileiras (Lei 10.639 e 11.645), com formação de professores, material didático antirracista ou disciplinas sobre história africana e indígena.",
+     "revisao": "texto operacional reescrito na v3 por sobrerrecuperação medida no corpus Educação",
+     "exclusoes": "Não se aplica a formação de professores em geral, apenas à formação com objeto étnico-racial ou antirracista.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência nos dois corpus classificados. Inalcançável pela rota de precedentes por ausência de exemplos, e dependente da rota de descrição, que fica abaixo da linha de base. Convém decidir com o Selo se permanece no índice.",
+     "id_anterior": "18.8.2",
+     "nota_id": "Renumerada de 18.8.2 para 18.8.b. A Portaria Conjunta MPI/MIR/SG-PR nº 198/2025 usa o mesmo identificador para uma meta e para um indicador distintos (ex.: \"meta 18.5.1\" e \"indicador 18.5.1\"). A letra elimina a colisão.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 62
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de ensino das histórias e culturas africana, afro-brasileira e indígena no currículo escolar, conforme as Leis 10.639/2003 e 11.645/2008."
+    },
+    "18.9": {
+     "institucional": "Promover o reconhecimento dos saberes dos povos indígenas e afrodescendentes e garantir-lhes a participação nos processos de tomada de decisão na execução de grandes obras e empreendimentos que afetam seus territórios, na exploração econômica da biodiversidade e no acesso ao patrimônio genético e ao conhecimento tradicional associado.",
+     "operacional": "Saberes tradicionais indígenas e afrodescendentes, consulta prévia, etnoconhecimento e participação dessas populações em decisões sobre seus territórios.",
+     "roteamento": "precedentes",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 2,
+      "sociedade_civil": 0
+     },
+     "aparicoes_top3": {
+      "educacao": 20
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos que valorizam saberes tradicionais indígenas e afrodescendentes e garantem participação dessas populações em decisões sobre seus territórios, com consulta prévia, etnoconhecimento ou proteção de conhecimentos tradicionais."
+    },
+    "18.10": {
+     "institucional": "Eliminar a xenofobia e assegurar que todas as metas anteriores, quando cabíveis, sejam refletidas também no tratamento de imigrantes indígenas e afrodescendentes.",
+     "operacional": "Xenofobia e situação de imigrantes indígenas ou afrodescendentes.",
+     "roteamento": "precedentes",
+     "status_revisao": "sem ocorrência no Selo Educação e com 3 ocorrência(s) na Sociedade Civil. Mantida no índice, com precedentes disponíveis apenas no segundo programa.",
+     "rota_reserva": "descricao",
+     "uso_curadoria": {
+      "educacao": 0,
+      "sociedade_civil": 3
+     },
+     "aparicoes_top3": {
+      "educacao": 15
+     },
+     "uso_na_tese": {
+      "status": "candidata_a_recuperacao_e_decisao",
+      "observacao": "Aplicar ao domínio de pesquisa acadêmica mediante evidência textual substantiva; não assumir que regras oriundas do domínio de iniciativas estejam validadas para pesquisas."
+     },
+     "operacional_v1_iniciativas": "Projetos de enfrentamento à xenofobia e apoio a imigrantes indígenas ou afrodescendentes."
+    }
+   }
+  }
+ },
+ "recuperacao": {
+  "rota_principal": "precedentes",
+  "indice": "uniao",
+  "precedentes_disponiveis": 6602,
+  "vizinhos": 40,
+  "correcao_frequencia_expoente": 0.15,
+  "candidatas_entregues": 5,
+  "medicoes": {
+   "recall_em_3_precedentes": 0.754,
+   "recall_em_5_precedentes": 0.837,
+   "recall_em_3_descricao": 0.419,
+   "linha_de_base_constante_em_3": 0.573,
+   "contribuicao_textual_controle_embaralhamento": 0.221
+  },
+  "observacoes": [
+   "A rota por descrição fica abaixo da linha de base constante e serve apenas para garantir alcançabilidade das metas sem precedente.",
+   "Ampliar o índice de 2.240 para 6.602 precedentes não altera o desempenho, que se mantém dentro de 0,014 entre as três configurações testadas. A união é adotada pela cobertura, não pelo recall.",
+   "A vizinhança pesa mais que a correção de frequência. Passar de 20 para 40 vizinhos rende entre 0,013 e 0,029.",
+   "O expoente de correção de frequência não tem valor estável entre índices, variando de 0,15 a 0,40 nas melhores configurações, e precisa ser recalibrado conforme o índice cresce com as avaliações homologadas. Trate-o como parâmetro de manutenção."
+  ],
+  "protocolo_recalibracao": "Varredura de vizinhança em 10, 20, 40 e 80 e de expoente em 0 a 1, sobre partição de avaliação preservada, sempre comparada à linha de base constante do próprio índice."
+ },
+ "escopo": {
+  "programas": [
+   "Selo ODS Educação",
+   "Sociedade Civil"
+  ],
+  "pendencia": "Resolvida. O corpus da Sociedade Civil registra grupos de ações e atividades no mesmo formato do Selo Educação, com 2.325 atividades extraídas de 1.044 projetos e 2.298 com meta atribuída, o que corresponde a 98,8%. O desenho por atividade aplica-se aos dois programas e o índice de precedentes pode ser construído para ambos.",
+  "indice": "Tabela vetorial única com coluna de programa e filtro na consulta. Parâmetros calibrados por programa, dada a divergência de distribuição de rótulos entre os dois.",
+  "corpus_precedentes": {
+   "educacao_ciclos_2024_2025": {
+    "acoes": 5347,
+    "validadas_na_rodada_final": true
+   },
+   "educacao_corpus_anterior": {
+    "atividades_rotuladas": 3207,
+    "sobreposicao_com_o_recente": 2624
+   },
+   "sociedade_civil": {
+    "projetos": 1044,
+    "atividades_rotuladas": 2298
+   },
+   "observacao": "Remover do índice qualquer ação coincidente com a partição de avaliação antes de medir."
+  }
+ },
+ "exclusoes_observadas": {
+  "fonte": "Observações de assessores nos apontamentos do critério de ODS, ciclos 2024 e 2025 do Selo Educação.",
+  "total_unicas": 336,
+  "objetivos_cobertos": 18,
+  "arquivo": "exclusoes_observadas.json",
+  "uso": "Prompt da camada de decisão. Não vetorizar, pelo mesmo motivo que vale para o campo exclusoes.",
+  "ods_mais_rejeitados": {
+   "4": 152,
+   "17": 79,
+   "10": 63,
+   "11": 30,
+   "3": 30
+  }
+ },
+ "versao_base_original": "6.0",
+ "escopo_tese": {
+  "finalidade": "Base de conhecimento para um agente de IA voltado a apoiar pesquisadores na identificação e compreensão do alinhamento de pesquisas acadêmicas aos ODS.",
+  "unidade_de_analise": "pesquisa acadêmica, especialmente título, resumo e palavras-chave",
+  "nivel_de_saida": {
+   "primario": "ODS",
+   "secundario": "metas candidatas, acompanhadas de justificativa",
+   "observacao": "O corpus humano disponível fornece gabarito no nível dos ODS; portanto, a avaliação automática das metas específicas exige estratégia de validação própria."
+  },
+  "papel_pedagogico": "A classificação deve ser acompanhada de explicação que permita ao pesquisador compreender por que sua pesquisa foi associada aos ODS/metas.",
+  "papel_institucional_secundario": "Resultados agregados podem subsidiar análises institucionais da contribuição da produção acadêmica aos ODS, sem substituir avaliação de impacto."
+ },
+ "politica_de_recuperacao_tese": {
+  "embedding_metas": {
+   "campo_principal": "operacional",
+   "nao_incorporar_no_embedding": [
+    "exclusoes"
+   ],
+   "campo_de_referencia_para_decisao": "institucional",
+   "justificativa": "Mantém a lógica metodológica da versão 6: o texto operacional é usado na recuperação semântica; exclusões são avaliadas na etapa decisória."
+  },
+  "precedentes_ufu": {
+   "uso": [
+    "recuperação de casos semanticamente próximos",
+    "exemplos contextuais/few-shot",
+    "calibração do artefato"
+   ],
+   "restricao_avaliacao": "Registros pertencentes ao conjunto independente de teste não podem estar disponíveis na base de precedentes durante a avaliação.",
+   "nao_e": "fine-tuning dos pesos do LLM"
+  },
+  "decisao": {
+   "principio": "A similaridade vetorial gera candidatos; a decisão final deve considerar o conteúdo da pesquisa, o texto institucional, o texto operacional, as exclusões e, quando disponíveis, precedentes recuperados.",
+   "evitar": [
+    "classificar por mera ocorrência de palavras-chave",
+    "tratar menção incidental a um ODS como contribuição",
+    "inferir impacto social, ambiental ou econômico não demonstrado pelo texto",
+    "forçar pelo menos um ODS quando não houver evidência suficiente"
+   ]
+  }
+ },
+ "adaptacao_de_dominio": {
+  "origem_da_base": "Guia de Metas Locais previamente estruturado para análise de iniciativas/projetos.",
+  "novo_dominio": "pesquisas acadêmicas",
+  "regra": "Os campos originais das metas são preservados como conhecimento-fonte. As regras de roteamento da base original não devem ser interpretadas automaticamente como regras já validadas para classificação de teses e dissertações.",
+  "criterios_para_pesquisa": [
+   "Identificar o objeto, problema, objetivo, método ou resultado explicitamente descrito.",
+   "Verificar se há relação substantiva entre esse conteúdo e o resultado expresso pela meta.",
+   "Distinguir contribuição investigada pela pesquisa de efeitos produzidos pela própria pesquisa.",
+   "Evitar atribuir contribuição apenas porque o resumo menciona sustentabilidade, Agenda 2030 ou um ODS.",
+   "Quando a evidência permitir apenas associação temática, sinalizar a limitação na justificativa.",
+   "Permitir ausência de classificação quando não houver evidência suficiente."
+  ],
+  "reescrita_operacional_v2": {
+   "motivacao": "Na versao tese_v1 os 94 campos operacional iniciavam pela palavra \"Projetos\" e descreviam tipos de iniciativa, o que introduzia um componente comum dominante nas representacoes vetoriais e reduzia a discriminacao da recuperacao para consultas compostas por titulo e resumo de pesquisas academicas.",
+   "procedimento": "Cada campo operacional foi reescrito para descrever o fenomeno tratado pela meta, preservando populacoes, mecanismos e entidades especificas, sem prefixo formulaico de genero textual.",
+   "preservacao": "O texto original permanece em operacional_v1_iniciativas, e os campos institucional, exclusoes, roteamento e rota_reserva nao foram alterados."
+  }
+ },
+ "formato_de_saida_recomendado": {
+  "classificacoes": [
+   {
+    "ods": "inteiro",
+    "meta": "código X.Y quando houver evidência suficiente",
+    "evidencias_do_texto": [
+     "trechos ou elementos semânticos da pesquisa"
+    ],
+    "justificativa": "explicação da relação entre a pesquisa e o ODS/meta",
+    "tipo_de_relacao": [
+     "contribuicao_direta",
+     "contribuicao_indireta",
+     "associacao_tematica"
+    ],
+    "confianca": "baixa|media|alta"
+   }
+  ],
+  "alertas": [
+   "menção incidental",
+   "evidência insuficiente",
+   "possível tensão ou trade-off",
+   "necessidade de informação adicional"
+  ],
+  "explicacao_educativa": "Explicar ao pesquisador o sentido da classificação e, quando pertinente, por que alternativas próximas não foram selecionadas."
+ },
+ "governanca_e_avaliacao": {
+  "interacoes_usuarios": "Persistência somente após os procedimentos éticos e autorizações aplicáveis; até então, utilizar avaliação offline com dados secundários.",
+  "avaliacao_tecnica_ods": [
+   "subset accuracy",
+   "Jaccard",
+   "precisão micro e macro",
+   "revocação micro e macro",
+   "F1 micro e macro",
+   "métricas por ODS",
+   "análise qualitativa dos erros"
+  ],
+  "avaliacao_recuperacao": [
+   "recall@k de candidatos quando houver referência adequada",
+   "verificação de groundedness entre resposta e contexto recuperado"
+  ],
+  "avaliacao_metas": "Não inferir validade das metas X.Y a partir do gabarito de ODS; definir validação específica com especialistas/amostra anotada."
+ }
+}
